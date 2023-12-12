@@ -1,0 +1,12 @@
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\bin\Debug\net6.0\AzureAIContentSafety.deps.json
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\bin\Debug\net6.0\AzureAIContentSafety.dll
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\bin\Debug\net6.0\AzureAIContentSafety.pdb
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.csproj.AssemblyReference.cache
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.AssemblyInfoInputs.cache
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.AssemblyInfo.cs
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.csproj.CoreCompileInputs.cache
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.dll
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\refint\AzureAIContentSafety.dll
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.pdb
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\ref\AzureAIContentSafety.dll
