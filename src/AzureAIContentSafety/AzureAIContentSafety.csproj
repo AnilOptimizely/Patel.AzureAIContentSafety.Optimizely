@@ -1,9 +1,27 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+	</PropertyGroup> 
+    
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ContentSafety\AddOn\" />
+    <Folder Include="ContentSafety\Factories\" />
+    <Folder Include="ContentSafety\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="AzureAIContentSafety.sln" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.AI.ContentSafety" Version="1.0.0-beta.1" />
+    <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.26.0" />
+  </ItemGroup>
 
 </Project>
