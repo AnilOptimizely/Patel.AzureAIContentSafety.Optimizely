@@ -2,11 +2,6 @@
 using EPiServer;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EPiServer.ServiceLocation;
 using Azure.AI.ContentSafety;
 using ImageData = EPiServer.Core.ImageData;
@@ -32,6 +27,7 @@ namespace AzureAIContentSafety.Initialization
         {
             var getIContentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
             var getStartPage = getIContentLoader.Get<IContent>(ContentReference.StartPage);
+
             if (e.Content is ImageData image)
             {
                 var detectIfImageAnalysisAllowed = OptimizelyCmsHelpers.GetPagePropertiesWithAttribute(getStartPage, typeof(ImageAnalysisAllowedAttribute));
@@ -58,16 +54,21 @@ namespace AzureAIContentSafety.Initialization
                     }
                 }
             }
+
             if (e.Content is IContent content)
             {
                 var detectIfTextAnalysisAllowed = OptimizelyCmsHelpers.GetPagePropertiesWithAttribute(getStartPage, typeof(TextAnalysisAllowedAttribute));
                 if (detectIfTextAnalysisAllowed.Any())
                 {
                     var getTextAnalysisAttributesBlocklist = OptimizelyCmsHelpers.GetPropertiesWithAttribute(content, typeof(TextAnalysisAttribute));
+                    if (getTextAnalysisAttributesBlocklist.Any() && getTextAnalysisAttributesBlocklist != null)
+                    {
+
+                    }
                 }
 
                 var detectIfTextAnalysisBlocklistAllowed = OptimizelyCmsHelpers.GetPagePropertiesWithAttribute(getStartPage, typeof(TextAnalysisBlocklistAllowedAttribute));
-                if (detectIfTextAnalysisBlocklistAllowed.Any())
+                if (detectIfTextAnalysisBlocklistAllowed.Any() && detectIfTextAnalysisBlocklistAllowed != null)
                 {
                     var getTextAnalysisAttributesBlocklist = OptimizelyCmsHelpers.GetPropertiesWithAttribute(content, typeof(TextAnalysisBlocklist));
                 }

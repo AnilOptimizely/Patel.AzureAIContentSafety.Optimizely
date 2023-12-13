@@ -99,9 +99,63 @@ namespace AzureAIContentSafety.Helpers
             }
         }
 
+        public static AnalyzeTextResult AnalyseText(string textToBeAnalysed)
+        {
+            if (!string.IsNullOrWhiteSpace(textToBeAnalysed))
+            {
+                // Example: analyze text without blocklist
+                var request = new AnalyzeTextOptions(textToBeAnalysed);
+
+                Response<AnalyzeTextResult> response;
+                try
+                {
+                    response = GetClient().AnalyzeText(request);
+                    Console.WriteLine("Azure AI Content Safety -  Text Analysis complete");
+                    Console.WriteLine("Hate severity: {0}", response.Value.HateResult?.Severity ?? 0);
+                    Console.WriteLine("SelfHarm severity: {0}", response.Value.SelfHarmResult?.Severity ?? 0);
+                    Console.WriteLine("Sexual severity: {0}", response.Value.SexualResult?.Severity ?? 0);
+                    Console.WriteLine("Violence severity: {0}", response.Value.ViolenceResult?.Severity ?? 0);
+                    return response.Value;
+                }
+                catch (RequestFailedException ex)
+                {
+                    Console.WriteLine("Analyze text failed.\nStatus code: {0}, Error code: {1}, Error message: {2}", ex.Status, ex.ErrorCode, ex.Message);
+                    throw;
+                }
+            }
+            return null;
+        }
+
+        public static IReadOnlyList<TextBlocklistMatchResult> AnalyseTextWithBlockList(string blockListName, string inputString)
+        {
+            // Example: analyze text with blocklist
+            var request = new AnalyzeTextOptions(inputString);
+            request.BlocklistNames.Add(blockListName);
+            request.BreakByBlocklists = true;
+
+            Response<AnalyzeTextResult> response;
+            try
+            {
+                response = GetClient().AnalyzeText(request);
+
+                if (response.Value.BlocklistsMatchResults != null)
+                {
+                    Console.WriteLine("Azure AI Content Safety -  Analysis of Text using a Blocklist operation complete");
+                    Console.WriteLine("Blocklist Match Count: {0}", response.Value.BlocklistsMatchResults.Count);
+                    return response.Value.BlocklistsMatchResults;
+                }
+            }
+            catch (RequestFailedException)
+            {
+                throw;
+
+            }
+            return null;
+        }
+
         public static ContentSafetyClient GetClient()
         {
-            ContentSafetyClient client = new(new Uri(""), new AzureKeyCredential(""));
+            ContentSafetyClient client = new(new Uri("https://aniloptimizely.cognitiveservices.azure.com/"), new AzureKeyCredential("45efe358f4e647758e6d41451a84dba8"));
             return client;
         }
 

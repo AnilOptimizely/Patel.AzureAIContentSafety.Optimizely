@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzureAIContentSafety")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccbe3adec5d7b8bf7655e4b9f1c97886a4b4f69c")]
 [assembly: System.Reflection.AssemblyProductAttribute("AzureAIContentSafety")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzureAIContentSafety")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

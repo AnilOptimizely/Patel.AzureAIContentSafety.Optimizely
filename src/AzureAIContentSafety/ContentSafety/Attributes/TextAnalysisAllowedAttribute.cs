@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace AzureAIContentSafety.ContentSafety.Attributes
 {
-    internal class TextAnalysisAllowedAttribute : ContentSafetyBaseContentAttribute
+    public class TextAnalysisAllowedAttribute : ContentSafetyBaseContentAttribute
     {
+
+        public override bool AnalyzeCMSContent => true;
         public override void UpdateContent(AnalyzeTextResult analyseContentSafetyTextResult, AzureAIContentSafetyService azureAIContentSafetyService, ContentPropertyAccess contentPropertyAccess)
         {
             

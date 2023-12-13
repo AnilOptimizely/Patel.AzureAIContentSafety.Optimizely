@@ -6,6 +6,7 @@ C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSaf
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.AssemblyInfoInputs.cache
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.AssemblyInfo.cs
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.csproj.CoreCompileInputs.cache
+C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.sourcelink.json
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.dll
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\refint\AzureAIContentSafety.dll
 C:\Users\PATELAN-S\source\repos\Patel-AzureAIContentSafety\src\AzureAIContentSafety\obj\Debug\net6.0\AzureAIContentSafety.pdb
