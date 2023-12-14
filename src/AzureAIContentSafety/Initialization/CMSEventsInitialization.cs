@@ -7,7 +7,6 @@ using Azure.AI.ContentSafety;
 using ImageData = EPiServer.Core.ImageData;
 using AzureAIContentSafety.Helpers;
 using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.Interfaces;
 using EPiServer.Framework.Blobs;
 using AzureAIContentSafety.ContentSafety.Helpers;
 
@@ -47,7 +46,44 @@ namespace AzureAIContentSafety.Initialization
                                 var retrieveSeverityLevelValues = OptimizelyCmsHelpers.GetPagePropertiesWithAttribute(getStartPage, typeof(SeverityLevelAttribute));
                                 if (retrieveSeverityLevelValues != null && retrieveSeverityLevelValues.Any())
                                 {
-
+                                    foreach(var severityLevel in retrieveSeverityLevelValues)
+                                    {
+                                        var getValueCMS = severityLevel.Property.GetValue(severityLevel.Content);
+                                        int severityLevelCMS = Int32.Parse(getValueCMS.ToString());
+                                        if (severityLevel.Property.Name.Contains("Sexual"))
+                                        {
+                                            if (analyseImage.SexualResult.Severity > severityLevelCMS)
+                                            {
+                                                e.CancelReason = string.Format("Unable to publish - Azure AI Content Safety has decteted Sexual content. Severity Level Detected is : {0} and the Level allowed is : {1} , ", analyseImage.SexualResult.Severity, severityLevelCMS);
+                                                e.CancelAction = true;
+                                            }
+                                        }
+                                        if (severityLevel.Property.Name.Contains("SelfHarm"))
+                                        {
+                                            if (analyseImage.SelfHarmResult.Severity > severityLevelCMS)
+                                            {
+                                                e.CancelReason = string.Format("Unable to publish Image - Azure AI Content Safety has decteted Self Harm content. Severity Level Detected is : {0} and the Level allowed is : {1} , ", analyseImage.HateResult.Severity, severityLevelCMS);
+                                                e.CancelAction = true;
+                                            }
+                                        }
+                                        if (severityLevel.Property.Name.Contains("Violence"))
+                                        {
+                                            if (analyseImage.ViolenceResult.Severity > severityLevelCMS)
+                                            {
+                                                e.CancelReason = string.Format("Unable to publish - Azure AI Content Safety has decteted Violent content in the Main Body property. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.ViolenceResult.Severity, severityLevelCMS);
+                                                e.CancelAction = true;
+                                            }
+                                            
+                                        }
+                                        if (severityLevel.Property.Name.Contains("Hate"))
+                                        {
+                                            if (analyseImage.HateResult.Severity > severityLevelCMS)
+                                            {
+                                                e.CancelReason = string.Format("Unable to publish - Azure AI Content Safety has dectected Hate content in the Main Body property. Severity Level Detected is : {0} and the Level allowed is : {1} , ", analyseImage.SelfHarmResult.Severity, severityLevelCMS);
+                                                e.CancelAction = true;
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -60,10 +96,16 @@ namespace AzureAIContentSafety.Initialization
                 var detectIfTextAnalysisAllowed = OptimizelyCmsHelpers.GetPagePropertiesWithAttribute(getStartPage, typeof(TextAnalysisAllowedAttribute));
                 if (detectIfTextAnalysisAllowed.Any())
                 {
+                    var listTextAnalysed = new List<AnalyzeTextResult>();
                     var getTextAnalysisAttributesBlocklist = OptimizelyCmsHelpers.GetPropertiesWithAttribute(content, typeof(TextAnalysisAttribute));
                     if (getTextAnalysisAttributesBlocklist.Any() && getTextAnalysisAttributesBlocklist != null)
                     {
-
+                        foreach (var attribute in getTextAnalysisAttributesBlocklist)
+                        {
+                            var getTextAnalysisValue = attribute.Property.GetValue(attribute.Content).ToString();
+                            var analyseText = ContentSafetyServiceAnalyser.AnalyseText(getTextAnalysisValue, content);
+                            listTextAnalysed.Add(analyseText);
+                        }
                     }
                 }
 

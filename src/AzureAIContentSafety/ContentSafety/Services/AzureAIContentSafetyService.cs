@@ -5,22 +5,29 @@ using Azure.Core;
 using AzureAIContentSafety.Interfaces;
 using AzureAIContentSafety.Helpers;
 using AzureAIContentSafety.ContentSafety.Models;
+using Microsoft.Extensions.Options;
+using EPiServer.ServiceLocation;
 
 namespace AzureAIContentSafety.Services
 {
     public class AzureAIContentSafetyService : IAzureAIContentSafetyService
     {
         private readonly OptimizelyCmsHelpers _optimizelyCmsHelper;
+        private static IOptions<ContentSafetyOptions> _configuration;
+        private static IOptions<ContentSafetyOptions> Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IOptions<ContentSafetyOptions>>();
+
+        private static readonly string ContentSafetySubscriptionKey = Configuration.Value.ContentSafetySubscriptionKey;
+        private static readonly string ContentSafetyEndpoint = Configuration.Value.ContentSafetyEndpoint;
 
         public AzureAIContentSafetyService(OptimizelyCmsHelpers optimizelyCmsHelpers)
         {
             _optimizelyCmsHelper = optimizelyCmsHelpers;
         }
 
-        public ContentSafetyClient GetClient()
+        public static ContentSafetyClient GetClient()
         {
-            var endpoint = "";
-            var key = "";
+            var endpoint = ContentSafetyEndpoint;
+            var key = ContentSafetySubscriptionKey;
 
             ContentSafetyClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
             return client;

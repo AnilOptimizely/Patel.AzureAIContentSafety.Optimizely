@@ -7,10 +7,10 @@ using AzureAIContentSafety.ContentSafety.Attributes;
 using AzureAIContentSafety.ContentSafety.Models;
 using EPiServer.Core;
 using System.Reflection;
-using AzureAIContentSafety.Services;
-using System.IO;
 using Azure;
 using ImageData = Azure.AI.ContentSafety.ImageData;
+using Microsoft.Extensions.Options;
+using EPiServer.Logging;
 
 namespace AzureAIContentSafety.Helpers
 {
@@ -18,6 +18,12 @@ namespace AzureAIContentSafety.Helpers
     {
         protected readonly Injected<IAzureAIContentSafetyService> _azureContentSafetyService;
         private readonly IContentLoader _contentLoader;
+        private  static IOptions<ContentSafetyOptions> _configuration;
+        private static IOptions<ContentSafetyOptions> Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IOptions<ContentSafetyOptions>>();
+
+        private  static readonly string ContentSafetySubscriptionKey = Configuration.Value.ContentSafetySubscriptionKey;
+        private  static readonly string ContentSafetyEndpoint = Configuration.Value.ContentSafetyEndpoint;
+        private  readonly ILogger Log = LogManager.GetLogger();
 
         public OptimizelyCmsHelpers(IContentLoader contentLoader)
         {
@@ -155,7 +161,7 @@ namespace AzureAIContentSafety.Helpers
 
         public static ContentSafetyClient GetClient()
         {
-            ContentSafetyClient client = new(new Uri("https://aniloptimizely.cognitiveservices.azure.com/"), new AzureKeyCredential("45efe358f4e647758e6d41451a84dba8"));
+            ContentSafetyClient client = new(new Uri(ContentSafetyEndpoint), new AzureKeyCredential(ContentSafetySubscriptionKey));
             return client;
         }
 
