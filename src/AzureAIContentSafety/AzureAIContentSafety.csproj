@@ -6,7 +6,22 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	  <Nullable>disable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <IsPackable>true</IsPackable>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Version>1.0.0.0</Version>
+	  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAILanguage</RepositoryUrl>
+	  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAILanguage</PackageProjectUrl>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <Authors>Anil Patel</Authors>
+	  <Description>Azure AI Content Safety - Integration with Optimizely CMS.</Description>
+	  <Copyright>Anil Patel 2023</Copyright>
+	  <PackageTags>Optimizely;CMS;Optimizely CMS;Azure AI Content Safety;AI</PackageTags>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <RepositoryType>git</RepositoryType>
+	  <AssemblyVersion>1.0.0.0</AssemblyVersion>
+	  <PackageReleaseNotes>First Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,8 +35,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Azure.AI.ContentSafety" Version="1.0.0-beta.1" />
-    <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.26.0" />
+	  <PackageReference Include="Azure.AI.ContentSafety" Version="[1.0.0-beta.1, )" NoWarn="NU5104" />
+	  <PackageReference Include="EPiServer.CMS" Version="12.24.0" />
+	  <PackageReference Include="EPiServer.CMS.AspNetCore.Routing" Version="12.19.0" />
+	  <PackageReference Include="EPiServer.CMS.AspNetCore.Templating" Version="12.19.0" />
+	  <PackageReference Include="EPiServer.CMS.Core" Version="12.19.0" />
+	  <PackageReference Include="EPiServer.CMS.UI" Version="12.24.0" />
+	  <PackageReference Include="EPiServer.CMS.UI.Admin" Version="12.24.0" />
+	  <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.24.0" />
+	  <PackageReference Include="EPiServer.Framework" Version="12.19.0" />
   </ItemGroup>
 
 </Project>
