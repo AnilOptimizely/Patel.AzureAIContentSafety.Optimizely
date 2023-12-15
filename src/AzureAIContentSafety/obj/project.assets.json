@@ -109,6 +109,29 @@
           }
         }
       },
+      "EPiServer.CMS/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.AspNetCore.HtmlHelpers": "[12.19.0, 13.0.0)",
+          "EPiServer.CMS.AspNetCore.TagHelpers": "[12.19.0, 13.0.0)",
+          "EPiServer.CMS.TinyMce": "[4.5.0, 5.0.0)",
+          "EPiServer.CMS.UI": "[12.24.0, 13.0.0)",
+          "EPiServer.CMS.UI.VisitorGroups": "[12.24.0, 13.0.0)",
+          "EPiServer.Cms.UI.AspNetIdentity": "[12.24.0, 13.0.0)",
+          "EPiServer.Hosting": "[12.19.0, 13.0.0)",
+          "EPiServer.ImageLibrary.ImageSharp": "[1.0.0, 3.0.0)"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.CMS.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.CMS.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "EPiServer.CMS.AspNetCore/12.19.0": {
         "type": "package",
         "dependencies": {
@@ -123,6 +146,70 @@
         },
         "runtime": {
           "lib/net6.0/EPiServer.Cms.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.CMS.AspNetCore.HtmlHelpers/12.19.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.AspNetCore.Mvc": "[12.19.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.HtmlHelpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.HtmlHelpers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.CMS.AspNetCore.Mvc/12.19.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.AspNetCore.Routing": "[12.19.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.Mvc.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.Mvc.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.CMS.AspNetCore.Routing/12.19.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.AspNetCore.Templating": "[12.19.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.Routing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.Routing.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.CMS.AspNetCore.TagHelpers/12.19.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.AspNetCore.Routing": "[12.19.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.TagHelpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.AspNetCore.TagHelpers.dll": {
             "related": ".xml"
           }
         }
@@ -174,7 +261,112 @@
           }
         }
       },
-      "EPiServer.CMS.UI.Core/12.26.0": {
+      "EPiServer.CMS.TinyMce/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI": "[12.23.0, 13.0.0)"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.TinyMce.SpellChecker.dll": {
+            "related": ".pdb"
+          },
+          "lib/net6.0/EPiServer.Cms.TinyMce.dll": {
+            "related": ".pdb;.SpellChecker.pdb;.xml"
+          },
+          "lib/net6.0/WeCantSpell.Hunspell.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.TinyMce.SpellChecker.dll": {
+            "related": ".pdb"
+          },
+          "lib/net6.0/EPiServer.Cms.TinyMce.dll": {
+            "related": ".pdb;.SpellChecker.pdb;.xml"
+          },
+          "lib/net6.0/WeCantSpell.Hunspell.dll": {
+            "related": ".pdb"
+          }
+        },
+        "contentFiles": {
+          "contentFiles/any/any/modules/_protected/EPiServer.Cms.TinyMce/EPiServer.Cms.TinyMce.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/EPiServer.Cms.TinyMce/EPiServer.Cms.TinyMce.zip"
+          }
+        },
+        "build": {
+          "build/net6.0/Episerver.Cms.TinyMce.targets": {}
+        }
+      },
+      "EPiServer.CMS.UI/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI.Admin": "[12.24.0]",
+          "EPiServer.CMS.UI.Core": "[12.24.0]",
+          "EPiServer.CMS.UI.Settings": "[12.24.0]"
+        },
+        "contentFiles": {
+          "contentFiles/any/any/modules/_protected/CMS/CMS.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/CMS/CMS.zip"
+          },
+          "contentFiles/any/any/modules/_protected/Shell/Shell.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/Shell/Shell.zip"
+          }
+        },
+        "build": {
+          "build/net6.0/EPiServer.Cms.UI.targets": {}
+        }
+      },
+      "EPiServer.CMS.UI.Admin/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI.Core": "[12.24.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.UI.Admin.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.UI.Admin.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.Admin/EPiServer.Cms.UI.Admin.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/EPiServer.Cms.UI.Admin/EPiServer.Cms.UI.Admin.zip"
+          }
+        },
+        "build": {
+          "build/net6.0/EPiServer.Cms.UI.Admin.targets": {}
+        }
+      },
+      "EPiServer.CMS.UI.AspNetIdentity/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI.Core": "[12.24.0]",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.UI.AspNetIdentity.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.UI.AspNetIdentity.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.CMS.UI.Core/12.24.0": {
         "type": "package",
         "dependencies": {
           "EPiServer.CMS.AspNetCore.Templating": "[12.19.0, 13.0.0)",
@@ -193,6 +385,52 @@
           "lib/net6.0/EPiServer.Shell.UI.dll": {},
           "lib/net6.0/EPiServer.Shell.dll": {},
           "lib/net6.0/EPiServer.UI.dll": {}
+        }
+      },
+      "EPiServer.CMS.UI.Settings/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI.Core": "[12.24.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.UI.Settings.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.UI.Settings.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.Settings/EPiServer.Cms.UI.Settings.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/EPiServer.Cms.UI.Settings/EPiServer.Cms.UI.Settings.zip"
+          }
+        },
+        "build": {
+          "build/net6.0/EPiServer.Cms.UI.Settings.targets": {}
+        }
+      },
+      "EPiServer.CMS.UI.VisitorGroups/12.24.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.UI.Core": "[12.24.0]"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Cms.UI.VisitorGroups.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Cms.UI.VisitorGroups.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.VisitorGroups/EPiServer.Cms.UI.VisitorGroups.zip": {
+            "buildAction": "None",
+            "codeLanguage": "any",
+            "copyToOutput": true,
+            "outputPath": "modules/_protected/EPiServer.Cms.UI.VisitorGroups/EPiServer.Cms.UI.VisitorGroups.zip"
+          }
+        },
+        "build": {
+          "build/net6.0/EPiServer.Cms.UI.VisitorGroups.targets": {}
         }
       },
       "EPiServer.Framework/12.19.0": {
@@ -252,6 +490,45 @@
           }
         }
       },
+      "EPiServer.Hosting/12.19.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.Framework": "[12.19.0]",
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Caching.Memory": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.DependencyModel": "6.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.Hosting.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.Hosting.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "EPiServer.ImageLibrary.ImageSharp/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "EPiServer.CMS.Core": "[12.4.2, 13.0.0)",
+          "SixLabors.ImageSharp": "[2.0.0, 3.0.0)"
+        },
+        "compile": {
+          "lib/net6.0/EPiServer.ImageLibrary.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EPiServer.ImageLibrary.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MailKit/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -265,6 +542,52 @@
         "runtime": {
           "lib/net5.0/MailKit.dll": {
             "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.0",
+          "Microsoft.Extensions.Identity.Stores": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -553,6 +876,152 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "6.0.0",
+          "Microsoft.EntityFrameworkCore.Analyzers": "6.0.0",
+          "Microsoft.Extensions.Caching.Memory": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "System.Collections.Immutable": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Relational/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.SqlServer/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "2.1.4",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Caching.Memory/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -626,6 +1095,133 @@
         },
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.FileProviders.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Identity.Core/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Identity.Stores/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Identity.Core": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Identity.Stores.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "System.Diagnostics.DiagnosticSource": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Options/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Primitives/6.0.0": {
@@ -1145,6 +1741,23 @@
           }
         }
       },
+      "SixLabors.ImageSharp/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1204,17 +1817,23 @@
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
         }
       },
-      "System.Collections.Immutable/5.0.0": {
+      "System.Collections.Immutable/6.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
         "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+          "lib/net6.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
+          "lib/net6.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Collections.NonGeneric/4.3.0": {
@@ -1359,17 +1978,23 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/5.0.0": {
+      "System.Diagnostics.DiagnosticSource/6.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
         "compile": {
-          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net6.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net6.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Diagnostics.Tools/4.3.0": {
@@ -2971,6 +3596,21 @@
         "windsor-logo.png"
       ]
     },
+    "EPiServer.CMS/12.24.0": {
+      "sha512": "RLzBD2vVqLh7vPby4/rNjiQlTtx+LDZwnjuMdlaa4/Tn/lbqVk9MCCzKFCIXqY0/Q9zPzuChOBrRZzD7KeCsWA==",
+      "type": "package",
+      "path": "episerver.cms/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.12.24.0.nupkg.sha512",
+        "episerver.cms.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.CMS.dll",
+        "lib/net6.0/EPiServer.CMS.pdb",
+        "lib/net6.0/EPiServer.CMS.xml",
+        "license.txt"
+      ]
+    },
     "EPiServer.CMS.AspNetCore/12.19.0": {
       "sha512": "ObRcdhHnCza6p+GU7eNlLw6O+gTWdcg9d03MfgU3U1ATPrSWQDrWycsq0u6HJiWfjDMsoR/8jNvhEkBcEqCfZA==",
       "type": "package",
@@ -2982,6 +3622,62 @@
         "icon.png",
         "lib/net6.0/EPiServer.Cms.AspNetCore.dll",
         "lib/net6.0/EPiServer.Cms.AspNetCore.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.AspNetCore.HtmlHelpers/12.19.0": {
+      "sha512": "ZtLkvBlGVBtUCYWjbDVi9QlUGNUNwZWXh50jVQieCfUW50lMOZCMcUV/4isJm1JEXq4nhDZ7Cu0bxjBjXbG3Dg==",
+      "type": "package",
+      "path": "episerver.cms.aspnetcore.htmlhelpers/12.19.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.aspnetcore.htmlhelpers.12.19.0.nupkg.sha512",
+        "episerver.cms.aspnetcore.htmlhelpers.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.HtmlHelpers.dll",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.HtmlHelpers.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.AspNetCore.Mvc/12.19.0": {
+      "sha512": "D5jKdD3uJ3NhGKz9KJk8xPCKv9X6q6LaZEs8ecJoa9JppoZ2tPOnudzzmfvJqU1ltr1N7SznEvCe2R/XrktclQ==",
+      "type": "package",
+      "path": "episerver.cms.aspnetcore.mvc/12.19.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.aspnetcore.mvc.12.19.0.nupkg.sha512",
+        "episerver.cms.aspnetcore.mvc.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.Mvc.dll",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.Mvc.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.AspNetCore.Routing/12.19.0": {
+      "sha512": "uQahR9Gntq0dK962DBw2eozKlKJ7TDdA+s9GnbNCvKN8ut9N5ccjuGX2MYzq1APmGq2Egp9nkKQ+rq435o0Y3w==",
+      "type": "package",
+      "path": "episerver.cms.aspnetcore.routing/12.19.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.aspnetcore.routing.12.19.0.nupkg.sha512",
+        "episerver.cms.aspnetcore.routing.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.Routing.dll",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.Routing.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.AspNetCore.TagHelpers/12.19.0": {
+      "sha512": "SzHLO2GXjhISSRVmc2IkQ5ReTVC5tY7ujy8Oy3YsY8X4GL0Wk7A5m/RvAAY+X+sqASi8bBR7UogeBPUKHwxjHw==",
+      "type": "package",
+      "path": "episerver.cms.aspnetcore.taghelpers/12.19.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.aspnetcore.taghelpers.12.19.0.nupkg.sha512",
+        "episerver.cms.aspnetcore.taghelpers.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.TagHelpers.dll",
+        "lib/net6.0/EPiServer.Cms.AspNetCore.TagHelpers.xml",
         "license.txt"
       ]
     },
@@ -3102,13 +3798,78 @@
         "tools/epiupdates/sql/9.8.3.sql"
       ]
     },
-    "EPiServer.CMS.UI.Core/12.26.0": {
-      "sha512": "j6FQpHvHA/THQ4Vcml3MoCUxb8xHwMUWxgbHjgoqMxYlm2NLvC9eY6+st7N87xEYZN0Mg9/fL2eY8G8qPDonpw==",
+    "EPiServer.CMS.TinyMce/4.5.0": {
+      "sha512": "qmyV6HLRr/hSFIaJ7PqtsRmL98ZV2xtl5AU3FWlrWIKLektMkfFtypHLZjN2GBlPl0yVBLfhUCxk4ZpEovXb8Q==",
       "type": "package",
-      "path": "episerver.cms.ui.core/12.26.0",
+      "path": "episerver.cms.tinymce/4.5.0",
       "files": [
         ".nupkg.metadata",
-        "episerver.cms.ui.core.12.26.0.nupkg.sha512",
+        "build/net6.0/Episerver.Cms.TinyMce.targets",
+        "contentFiles/any/any/modules/_protected/EPiServer.Cms.TinyMce/EPiServer.Cms.TinyMce.zip",
+        "episerver.cms.tinymce.4.5.0.nupkg.sha512",
+        "episerver.cms.tinymce.nuspec",
+        "lib/net6.0/EPiServer.Cms.TinyMce.SpellChecker.dll",
+        "lib/net6.0/EPiServer.Cms.TinyMce.SpellChecker.pdb",
+        "lib/net6.0/EPiServer.Cms.TinyMce.dll",
+        "lib/net6.0/EPiServer.Cms.TinyMce.pdb",
+        "lib/net6.0/EPiServer.Cms.TinyMce.xml",
+        "lib/net6.0/WeCantSpell.Hunspell.dll",
+        "lib/net6.0/WeCantSpell.Hunspell.pdb",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.UI/12.24.0": {
+      "sha512": "kJLqu6Qllu1t5qDaNvMTXWBZb08prongCZVYpwRdPIU2LFZUNhzeRz22KinfHEmtJ57OBfL0G+icLph8BMnVrQ==",
+      "type": "package",
+      "path": "episerver.cms.ui/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "build/net6.0/EPiServer.Cms.UI.targets",
+        "contentFiles/any/any/modules/_protected/CMS/CMS.zip",
+        "contentFiles/any/any/modules/_protected/Shell/Shell.zip",
+        "episerver.cms.ui.12.24.0.nupkg.sha512",
+        "episerver.cms.ui.nuspec",
+        "icon.png",
+        "license.txt",
+        "readme.txt"
+      ]
+    },
+    "EPiServer.CMS.UI.Admin/12.24.0": {
+      "sha512": "DZR4UJZNFGE6Rkbyw0kis7QAi6H086ntJKaYQzese1cLUnDZZdoP19ceVvdAQIy3wGYgM8FyyJ0g4e+rm/YHng==",
+      "type": "package",
+      "path": "episerver.cms.ui.admin/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "build/net6.0/EPiServer.Cms.UI.Admin.targets",
+        "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.Admin/EPiServer.Cms.UI.Admin.zip",
+        "episerver.cms.ui.admin.12.24.0.nupkg.sha512",
+        "episerver.cms.ui.admin.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.UI.Admin.dll",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.UI.AspNetIdentity/12.24.0": {
+      "sha512": "mbHeM2OfsGGKNFxgAOw12bOV5/d1BgYu+54xp7scgJ7kxEPWbet+x5mlOdMvBiC/l0DQ3r7X6JRNyI8Orq9NyA==",
+      "type": "package",
+      "path": "episerver.cms.ui.aspnetidentity/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.ui.aspnetidentity.12.24.0.nupkg.sha512",
+        "episerver.cms.ui.aspnetidentity.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.UI.AspNetIdentity.dll",
+        "lib/net6.0/EPiServer.Cms.UI.AspNetIdentity.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.UI.Core/12.24.0": {
+      "sha512": "4h04nXiGDDzvb4wZKkAl8ngCgN7DloKxncn0jPFKM1KyjRZBBpKIrIsYzqaFr86U8yOX7UwoMY2m+nVk19NOPw==",
+      "type": "package",
+      "path": "episerver.cms.ui.core/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.cms.ui.core.12.24.0.nupkg.sha512",
         "episerver.cms.ui.core.nuspec",
         "icon.png",
         "lib/net6.0/EPiServer.Cms.Shell.UI.dll",
@@ -3117,6 +3878,36 @@
         "lib/net6.0/EPiServer.UI.dll",
         "license.txt",
         "readme.txt"
+      ]
+    },
+    "EPiServer.CMS.UI.Settings/12.24.0": {
+      "sha512": "z5H0C/pjeG++yJP983T/T0mXZG6+BHiPf6+GTjymVtZ4k7x8r/sVP6KNhbzXnOhDVQRJj+Cwe6tqHtzCAdLBrQ==",
+      "type": "package",
+      "path": "episerver.cms.ui.settings/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "build/net6.0/EPiServer.Cms.UI.Settings.targets",
+        "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.Settings/EPiServer.Cms.UI.Settings.zip",
+        "episerver.cms.ui.settings.12.24.0.nupkg.sha512",
+        "episerver.cms.ui.settings.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.UI.Settings.dll",
+        "license.txt"
+      ]
+    },
+    "EPiServer.CMS.UI.VisitorGroups/12.24.0": {
+      "sha512": "AOONknDapcvgJf3p94F0qXqGxVpp+WMS8JMyVD7kXGpJBa+oDaAjARxcYcpO6x5LgGgAo47ZlYwettYR4HLBsQ==",
+      "type": "package",
+      "path": "episerver.cms.ui.visitorgroups/12.24.0",
+      "files": [
+        ".nupkg.metadata",
+        "build/net6.0/EPiServer.Cms.UI.VisitorGroups.targets",
+        "contentFiles/any/any/modules/_protected/EPiServer.Cms.UI.VisitorGroups/EPiServer.Cms.UI.VisitorGroups.zip",
+        "episerver.cms.ui.visitorgroups.12.24.0.nupkg.sha512",
+        "episerver.cms.ui.visitorgroups.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Cms.UI.VisitorGroups.dll",
+        "license.txt"
       ]
     },
     "EPiServer.Framework/12.19.0": {
@@ -3156,6 +3947,33 @@
         "license.txt"
       ]
     },
+    "EPiServer.Hosting/12.19.0": {
+      "sha512": "QmGvFZ2ASS/OOL36n8HkACY/cuIqZ3i0vYVw8OUlDhUBqa/TH7VKJj3Q1vtkSiFA+wAEJ5/jXEm3V4nmrBposg==",
+      "type": "package",
+      "path": "episerver.hosting/12.19.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.hosting.12.19.0.nupkg.sha512",
+        "episerver.hosting.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.Hosting.dll",
+        "lib/net6.0/EPiServer.Hosting.xml",
+        "license.txt"
+      ]
+    },
+    "EPiServer.ImageLibrary.ImageSharp/1.0.0": {
+      "sha512": "P3JwZLLVDplPVhxvpsz+wvmsKh8+2sMzbumLPLEu3e9IJxmIoZ8CxR0o2vBg9SUWvX1U+/ifzA/vIPI19vLfmA==",
+      "type": "package",
+      "path": "episerver.imagelibrary.imagesharp/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        "episerver.imagelibrary.imagesharp.1.0.0.nupkg.sha512",
+        "episerver.imagelibrary.imagesharp.nuspec",
+        "icon.png",
+        "lib/net6.0/EPiServer.ImageLibrary.ImageSharp.dll",
+        "lib/net6.0/EPiServer.ImageLibrary.ImageSharp.xml"
+      ]
+    },
     "MailKit/3.0.0": {
       "sha512": "/az267eMAng48hSeIliTZeCJM3YTuG1MtSDuZ2JpidMhG+PME0oEKBBxRx1fykpyOAAsw23UyUvHgHXoOlU7wA==",
       "type": "package",
@@ -3187,6 +4005,59 @@
         "lib/netstandard2.1/MailKit.xml",
         "mailkit.3.0.0.nupkg.sha512",
         "mailkit.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.Internal/6.0.0": {
+      "sha512": "ZWFBiHwkmipr+7t3MEPa7oB/iE8Kf5wvUptn9AXj7P7l/tGHEmRb1606Mlh/e2zkYwfjNGDH4Z5dUUlcnyccIw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.internal/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net461/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.xml",
+        "microsoft.aspnetcore.cryptography.internal.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.internal.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/6.0.0": {
+      "sha512": "CcYIcGn/zJFY0zq84V4r9Xd4aQn2/+8tsiRBYnhS/LVgWNDq7EsWxmLJ+bXWBBdpTHA+IKvXTag9YElFKFHWYQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net461/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll",
+        "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.xml",
+        "microsoft.aspnetcore.cryptography.keyderivation.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.cryptography.keyderivation.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Identity.EntityFrameworkCore/6.0.0": {
+      "sha512": "e4aPE+DfCOiGGYJzsKA9up5hmiCYzwxz+ktkFvuMUnLD2FfNPkjAXjdElfaH9wr7chEwOerOcQhNKS/THPew8A==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.identity.entityframeworkcore/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll",
+        "lib/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.identity.entityframeworkcore.6.0.0.nupkg.sha512",
+        "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.AspNetCore.JsonPatch/6.0.1": {
@@ -3632,6 +4503,152 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
       ]
     },
+    "Microsoft.EntityFrameworkCore/6.0.0": {
+      "sha512": "BdHAtHzfQt3rltgSoYamSlHg2qawPtEDT677/bcSJlO8lQ/lj6XWlusM0TOt59O8Sbqm3hAC1a+4cEBxmv56pw==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
+        "microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/6.0.0": {
+      "sha512": "MrMLWEw4JsZdkVci0MkkGj+fSjZrXnm3m6UNuIEwytiAAIZPvJs3iPpnzfK4qM7np82W374voYm96q7QCdL0ow==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
+        "microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/6.0.0": {
+      "sha512": "BqWBL05PUDKwPwLeQCJdc2R4cIUycXV9UmuSjYfux2fcgyet8I2eYnOWlA7NgsDwRVcxW26vxvNQ0wuc8UAcLA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.analyzers/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
+        "lib/netstandard2.0/_._",
+        "microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Relational/6.0.0": {
+      "sha512": "rTRzrSbkUXoCGijlT9O7oq7JfuaU1/+VFyfSBjADQuOsfa0FCrWeB8ybue5CDvO/D6uW0kvPvlKfY2kwxXOOdg==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.relational/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
+        "microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.SqlServer/6.0.0": {
+      "sha512": "1rYYHrvOIN1bXyN9qAVd0WhmTjbZNosyrMoAL4wRiw5pu65QazwjuVV6K1IWKD4AXPxQD7+k4CxAMVTPY//UrA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.sqlserver/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
+        "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
+        "microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Abstractions/6.0.0": {
+      "sha512": "bcz5sSFJbganH0+YrfvIjJDIcKNW7TL07C4d1eTmXy/wOt52iz4LVogJb6pazs7W0+74j0YpXFErvp++Aq5Bsw==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Caching.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
+        "microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.caching.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Caching.Memory/6.0.0": {
+      "sha512": "Ve3BlCzhAlVp5IgO3+8dacAhZk1A0GlIlFNkAcfR2TfAibLKWIt5DhVJZfu4YtW+XZ89OjYf/agMcgjDtPxdGA==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.memory/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/net461/Microsoft.Extensions.Caching.Memory.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
+        "microsoft.extensions.caching.memory.6.0.0.nupkg.sha512",
+        "microsoft.extensions.caching.memory.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+      "sha512": "qWzV9o+ZRWq+pGm+1dF+R7qTgTYoXvbyowRoBxQJGfqTpqDun2eteerjRQhq5PQ/14S+lqto3Ft4gYaRyl4rdQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Binder/6.0.0": {
+      "sha512": "b3ErKzND8LIC7o08QAVlKfaEIYEvLJbtmVbFZVBRXeu9YkKfSSzLZfR1SUfQPBIy9mKLhEtJgGYImkcMNaKE0A==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.binder/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
+        "microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection/6.0.0": {
       "sha512": "k6PWQMuoBDGGHOQTtyois2u4AwyVcIwL2LaSLlTZQm2CYcJ1pxbt6jfAnpWmzENA/wfrYRI/X9DTLoUkE4AsLw==",
       "type": "package",
@@ -3721,6 +4738,178 @@
         "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.xml",
         "microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.fileproviders.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/6.0.0": {
+      "sha512": "GcT5l2CYXL6Sa27KCSh0TixsRfADUgth+ojQSD5EkzisZxmGFh7CwzkcYuGwvmXLjr27uWRNrJ2vuuEjMhU05Q==",
+      "type": "package",
+      "path": "microsoft.extensions.hosting.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Hosting.Abstractions.xml",
+        "microsoft.extensions.hosting.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.hosting.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Identity.Core/6.0.0": {
+      "sha512": "coWZViIBVb1szN3zMMa6KYP9KmJzOniwQ5tySbiFmVW6Nbdy1KuNDNzIKQcigmfqS4aLWVvNLGCFyDJWYskS8g==",
+      "type": "package",
+      "path": "microsoft.extensions.identity.core/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Identity.Core.dll",
+        "lib/net461/Microsoft.Extensions.Identity.Core.xml",
+        "lib/net6.0/Microsoft.Extensions.Identity.Core.dll",
+        "lib/net6.0/Microsoft.Extensions.Identity.Core.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.xml",
+        "microsoft.extensions.identity.core.6.0.0.nupkg.sha512",
+        "microsoft.extensions.identity.core.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Identity.Stores/6.0.0": {
+      "sha512": "3TniGyXEuFLQhJoiEReGD4HAdSKRxuQX5FDDg4GwFeeB36en4xQC5MVuWx1riiNwmh2eMtXq/wLdaJLd6JXIig==",
+      "type": "package",
+      "path": "microsoft.extensions.identity.stores/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/net461/Microsoft.Extensions.Identity.Stores.xml",
+        "lib/net6.0/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/net6.0/Microsoft.Extensions.Identity.Stores.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
+        "microsoft.extensions.identity.stores.6.0.0.nupkg.sha512",
+        "microsoft.extensions.identity.stores.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging/6.0.0": {
+      "sha512": "eIbyj40QDg1NDz0HBW0S5f3wrLVnKWnDJ/JtZ+yJDFnDj90VoPuoPmFkeaXrtu+0cKm5GRAwoDf+dBWXK0TUdg==",
+      "type": "package",
+      "path": "microsoft.extensions.logging/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Logging.dll",
+        "lib/net461/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.xml",
+        "microsoft.extensions.logging.6.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/6.0.0": {
+      "sha512": "/HggWBbTwy8TgebGSX5DBZ24ndhzi93sHUBDvP1IxbZD7FDokYzdAr6+vbWGjw2XAfR2EJ1sfKUotpjHnFWPxA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "build/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options/6.0.0": {
+      "sha512": "dzXN0+V1AyjOe2xcJ86Qbo233KHuLEY0njf/P2Kw8SfJU+d45HNS2ctJdnEnrWbM9Ye2eFgaC5Mj9otRMU6IsQ==",
+      "type": "package",
+      "path": "microsoft.extensions.options/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Options.dll",
+        "lib/net461/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
+        "microsoft.extensions.options.6.0.0.nupkg.sha512",
+        "microsoft.extensions.options.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
+      "sha512": "bXWINbTn0vC0FYc9GaQTISbxhQLAMrvtbuvD9N6JelEaIS/Pr62wUCinrq5bf1WRBGczt1v4wDhxFtVFNcMdUQ==",
+      "type": "package",
+      "path": "microsoft.extensions.options.configurationextensions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -4419,6 +5608,28 @@
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
       ]
     },
+    "SixLabors.ImageSharp/2.0.0": {
+      "sha512": "hZmADrZvn1q9tjPNuuvvl8F8vkz+LFEhnfBkuvwq6Bjgyj3BcOBk6ct4qfssrs25vWIITeH1HkIVdcCYWacpLw==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net472/SixLabors.ImageSharp.dll",
+        "lib/net472/SixLabors.ImageSharp.xml",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp2.1/SixLabors.ImageSharp.xml",
+        "lib/netcoreapp3.1/SixLabors.ImageSharp.dll",
+        "lib/netcoreapp3.1/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.0/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.0/SixLabors.ImageSharp.xml",
+        "lib/netstandard2.1/SixLabors.ImageSharp.dll",
+        "lib/netstandard2.1/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.2.0.0.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -4641,30 +5852,27 @@
         "system.collections.concurrent.nuspec"
       ]
     },
-    "System.Collections.Immutable/5.0.0": {
-      "sha512": "FXkLXiK0sVVewcso0imKQoOxjoPAj42R8HtjjbSjVPAzwDfzoyoznWxgA3c38LDbN9SJux1xXoXYAhz98j7r2g==",
+    "System.Collections.Immutable/6.0.0": {
+      "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "type": "package",
-      "path": "system.collections.immutable/5.0.0",
+      "path": "system.collections.immutable/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
+        "buildTransitive/netcoreapp3.1/_._",
         "lib/net461/System.Collections.Immutable.dll",
         "lib/net461/System.Collections.Immutable.xml",
-        "lib/netstandard1.0/System.Collections.Immutable.dll",
-        "lib/netstandard1.0/System.Collections.Immutable.xml",
-        "lib/netstandard1.3/System.Collections.Immutable.dll",
-        "lib/netstandard1.3/System.Collections.Immutable.xml",
+        "lib/net6.0/System.Collections.Immutable.dll",
+        "lib/net6.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
-        "system.collections.immutable.5.0.0.nupkg.sha512",
+        "system.collections.immutable.6.0.0.nupkg.sha512",
         "system.collections.immutable.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Collections.NonGeneric/4.3.0": {
@@ -5026,32 +6234,29 @@
         "system.diagnostics.debug.nuspec"
       ]
     },
-    "System.Diagnostics.DiagnosticSource/5.0.0": {
-      "sha512": "tCQTzPsGZh/A9LhhA6zrqCRV4hOHsK90/G7q3Khxmn6tnB1PuNU0cRaKANP2AWcF9bn0zsuOoZOSrHuJk6oNBA==",
+    "System.Diagnostics.DiagnosticSource/6.0.0": {
+      "sha512": "frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
       "type": "package",
-      "path": "system.diagnostics.diagnosticsource/5.0.0",
+      "path": "system.diagnostics.diagnosticsource/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "lib/net45/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net45/System.Diagnostics.DiagnosticSource.xml",
-        "lib/net46/System.Diagnostics.DiagnosticSource.dll",
-        "lib/net46/System.Diagnostics.DiagnosticSource.xml",
+        "buildTransitive/netcoreapp2.0/System.Diagnostics.DiagnosticSource.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net461/System.Diagnostics.DiagnosticSource.xml",
         "lib/net5.0/System.Diagnostics.DiagnosticSource.dll",
         "lib/net5.0/System.Diagnostics.DiagnosticSource.xml",
-        "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.dll",
-        "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.xml",
-        "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll",
-        "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.xml",
-        "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
-        "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
-        "system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
+        "lib/net6.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/net6.0/System.Diagnostics.DiagnosticSource.xml",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.dll",
+        "lib/netstandard2.0/System.Diagnostics.DiagnosticSource.xml",
+        "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
         "system.diagnostics.diagnosticsource.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Diagnostics.Tools/4.3.0": {
@@ -8840,7 +10045,14 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Azure.AI.ContentSafety >= 1.0.0-beta.1",
-      "EPiServer.CMS.UI.Core >= 12.26.0"
+      "EPiServer.CMS >= 12.24.0",
+      "EPiServer.CMS.AspNetCore.Routing >= 12.19.0",
+      "EPiServer.CMS.AspNetCore.Templating >= 12.19.0",
+      "EPiServer.CMS.Core >= 12.19.0",
+      "EPiServer.CMS.UI >= 12.24.0",
+      "EPiServer.CMS.UI.Admin >= 12.24.0",
+      "EPiServer.CMS.UI.Core >= 12.24.0",
+      "EPiServer.Framework >= 12.19.0"
     ]
   },
   "packageFolders": {
@@ -8850,11 +10062,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PATELAN-S\\source\\repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\AzureAIContentSafety.csproj",
+      "projectUniqueName": "C:\\Users\\PATELAN-S\\Source\\Repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\AzureAIContentSafety.csproj",
       "projectName": "AzureAIContentSafety",
-      "projectPath": "C:\\Users\\PATELAN-S\\source\\repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\AzureAIContentSafety.csproj",
+      "projectPath": "C:\\Users\\PATELAN-S\\Source\\Repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\AzureAIContentSafety.csproj",
       "packagesPath": "C:\\Users\\PATELAN-S\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PATELAN-S\\source\\repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\obj\\",
+      "outputPath": "C:\\Users\\PATELAN-S\\Source\\Repos\\Patel-AzureAIContentSafety\\src\\AzureAIContentSafety\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -8891,11 +10103,42 @@
         "dependencies": {
           "Azure.AI.ContentSafety": {
             "target": "Package",
-            "version": "[1.0.0-beta.1, )"
+            "version": "[1.0.0-beta.1, )",
+            "noWarn": [
+              "NU5104"
+            ]
+          },
+          "EPiServer.CMS": {
+            "target": "Package",
+            "version": "[12.24.0, )"
+          },
+          "EPiServer.CMS.AspNetCore.Routing": {
+            "target": "Package",
+            "version": "[12.19.0, )"
+          },
+          "EPiServer.CMS.AspNetCore.Templating": {
+            "target": "Package",
+            "version": "[12.19.0, )"
+          },
+          "EPiServer.CMS.Core": {
+            "target": "Package",
+            "version": "[12.19.0, )"
+          },
+          "EPiServer.CMS.UI": {
+            "target": "Package",
+            "version": "[12.24.0, )"
+          },
+          "EPiServer.CMS.UI.Admin": {
+            "target": "Package",
+            "version": "[12.24.0, )"
           },
           "EPiServer.CMS.UI.Core": {
             "target": "Package",
-            "version": "[12.26.0, )"
+            "version": "[12.24.0, )"
+          },
+          "EPiServer.Framework": {
+            "target": "Package",
+            "version": "[12.19.0, )"
           }
         },
         "imports": [

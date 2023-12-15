@@ -1,7 +1,4 @@
-﻿using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.Interfaces;
-using AzureAIContentSafety.Services;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AzureAIContentSafety
@@ -20,14 +17,7 @@ namespace AzureAIContentSafety
                 setupAction(options);
                 configuration.GetSection("Patel:AzureAIContentSafety").Bind(options);
             });
-            services.SetUpContentSafetyDependencies();
             return services;
-        }
-
-        internal static void SetUpContentSafetyDependencies(this IServiceCollection services)
-        {
-            services.AddScoped<IAzureAIContentSafetyService, AzureAIContentSafetyService>();
-            services.AddScoped<OptimizelyCmsHelpers>();
         }
     }
 }

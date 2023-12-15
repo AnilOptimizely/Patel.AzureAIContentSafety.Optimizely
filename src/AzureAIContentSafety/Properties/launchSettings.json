@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AzureAIContentSafety": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\PATELAN-S\\source\\repos\\Patel-AzureAIContentSafety\\src\\AlloyMVC",
+      "nativeDebugging": true,
+      "remoteDebugEnabled": false
+    }
+  }
+}

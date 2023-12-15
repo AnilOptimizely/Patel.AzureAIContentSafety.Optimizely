@@ -48,11 +48,42 @@
           "dependencies": {
             "Azure.AI.ContentSafety": {
               "target": "Package",
-              "version": "[1.0.0-beta.1, )"
+              "version": "[1.0.0-beta.1, )",
+              "noWarn": [
+                "NU5104"
+              ]
+            },
+            "EPiServer.CMS": {
+              "target": "Package",
+              "version": "[12.24.0, )"
+            },
+            "EPiServer.CMS.AspNetCore.Routing": {
+              "target": "Package",
+              "version": "[12.19.0, )"
+            },
+            "EPiServer.CMS.AspNetCore.Templating": {
+              "target": "Package",
+              "version": "[12.19.0, )"
+            },
+            "EPiServer.CMS.Core": {
+              "target": "Package",
+              "version": "[12.19.0, )"
+            },
+            "EPiServer.CMS.UI": {
+              "target": "Package",
+              "version": "[12.24.0, )"
+            },
+            "EPiServer.CMS.UI.Admin": {
+              "target": "Package",
+              "version": "[12.24.0, )"
             },
             "EPiServer.CMS.UI.Core": {
               "target": "Package",
-              "version": "[12.26.0, )"
+              "version": "[12.24.0, )"
+            },
+            "EPiServer.Framework": {
+              "target": "Package",
+              "version": "[12.19.0, )"
             }
           },
           "imports": [

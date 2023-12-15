@@ -4,7 +4,7 @@ using EPiServer.Web;
 
 namespace AzureAIContentSafety.Business.Plugins
 {
-    public class BlocklistQuickNavigator : IQuickNavigatorItemProvider
+    public sealed class BlocklistQuickNavigator : IQuickNavigatorItemProvider
     {
         public int SortOrder
         {
