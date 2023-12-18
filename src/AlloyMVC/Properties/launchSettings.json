@@ -2,12 +2,11 @@
   "profiles": {
     "AlloyMVC": {
       "commandName": "Project",
-      "commandLineArgs": "C:\\Users\\PATELAN-S\\source\\repos\\Patel-AzureAIContentSafety\\src\\AlloyMVC\\bin\\Debug\\net6.0\\AzureAIContentSafety.dll",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:5000/",
+      "applicationUrl": "https://localhost:5400/",
       "nativeDebugging": true
     },
     "Profile 1": {

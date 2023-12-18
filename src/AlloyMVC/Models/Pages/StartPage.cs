@@ -76,6 +76,13 @@ public class StartPage : SitePageData
     [ImageAnalysisAllowed]
     public virtual bool AnalyseImages { get; set; }
 
+    [Display(GroupName = SystemTabNames.Content,
+       Order = 50,
+       Description = "Boolean to determine if Image Detection API for Azure AI Content Safety is allowed",
+       Name = "Blocklist Allowed")]
+    [TextAnalysisBlocklistAllowed]
+    public virtual bool BlocklistAllowed { get; set; }
+
     [Display(GroupName = Globals.GroupNames.SiteSettings, Order = 300)]
     public virtual LinkItemCollection ProductPageLinks { get; set; }
 
