@@ -48,7 +48,7 @@ public class Startup
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
-        
+        //services.AddMvc(options => options.EnableEndpointRouting = false);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,5 +71,6 @@ public class Startup
         {
             endpoints.MapContent();
         });
+        //app.UseMvc();
     }
 }

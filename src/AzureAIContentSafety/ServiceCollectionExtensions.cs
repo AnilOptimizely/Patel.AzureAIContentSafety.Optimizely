@@ -1,5 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using AzureAIContentSafety.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.Reflection;
 
 namespace AzureAIContentSafety
 {
@@ -17,6 +22,7 @@ namespace AzureAIContentSafety
                 setupAction(options);
                 configuration.GetSection("Patel:AzureAIContentSafety").Bind(options);
             });
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             return services;
         }
     }
