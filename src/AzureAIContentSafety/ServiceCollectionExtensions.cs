@@ -22,7 +22,6 @@ namespace AzureAIContentSafety
                 setupAction(options);
                 configuration.GetSection("Patel:AzureAIContentSafety").Bind(options);
             });
-            services.AddMvc(options => options.EnableEndpointRouting = false);
             return services;
         }
     }
