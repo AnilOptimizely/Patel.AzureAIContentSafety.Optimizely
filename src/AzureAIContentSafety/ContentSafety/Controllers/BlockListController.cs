@@ -26,7 +26,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            return View("/Views/BlockList/Index.cshtml", model);
+            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.DeleteBlockList(viewModel.BlockListName);
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
-            return View("/Views/BlockList/Index.cshtml", model);
+            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -54,7 +54,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.CreateNewBlockList(viewModel.BlockListName, viewModel.BlockListDescription);
-            return View("/Views/BlockList/Index.cshtml", model);
+            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@ namespace AzureAIContentSafety.Controllers
                 model.ContentSafetyModel.Message = _azureAIContentSafetyService.AddNewBlockItems(viewModel.BlockListName, listInfos).FirstOrDefault();
             }
 
-            return View("/Views/BlockList/Index.cshtml", model);
+            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -93,7 +93,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.ContentSafetyModel.BlockItems = _azureAIContentSafetyService.GetBlockItems(viewModel.BlockListName);
-            return View("/Views/BlockList/Index.cshtml", model);
+            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
     }
 }
