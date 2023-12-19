@@ -3,12 +3,6 @@ using AzureAIContentSafety.ContentSafety.Attributes;
 using AzureAIContentSafety.ContentSafety.Models;
 using AzureAIContentSafety.Models;
 using AzureAIContentSafety.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace AzureAIContentSafety.Attributes
 {
     public class SeverityLevelAttribute : ContentSafetyBaseContentAttribute
