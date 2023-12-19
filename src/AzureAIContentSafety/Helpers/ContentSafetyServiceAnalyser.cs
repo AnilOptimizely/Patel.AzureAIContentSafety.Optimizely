@@ -1,11 +1,10 @@
 ﻿using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.ContentSafety.Interface;
-using AzureAIContentSafety.Helpers;
+using AzureAIContentSafety.Interface;
 using EPiServer.Core;
 using EPiServer.Logging;
 
-namespace AzureAIContentSafety.ContentSafety.Helpers
+namespace AzureAIContentSafety.Helpers
 {
     public static class ContentSafetyServiceAnalyser
     {

@@ -1,7 +1,7 @@
 ﻿using EPiServer.Authorization;
 using EPiServer.Shell.Navigation;
 
-namespace AzureAIContentSafety.ContentSafety.AddOn
+namespace AzureAIContentSafety.AddOn
 {
     [MenuProvider]
     public sealed class BlockListToolProvider : IMenuProvider
@@ -10,12 +10,12 @@ namespace AzureAIContentSafety.ContentSafety.AddOn
         {
             var menuItems = new List<MenuItem>
             {
-                new UrlMenuItem("Azure Content Safety - BlockList",
-                MenuPaths.Global + "/cms" + "/blocklist",
+                new UrlMenuItem("BlockList",
+                MenuPaths.Global + "/cms/azurecontentsafetyblocklist",
                 "/AzureContentSafetyBlockList")
                 {
                     SortIndex = SortIndex.Last + 25,
-                    AuthorizationPolicy = CmsPolicyNames.CmsAdmin
+                    AuthorizationPolicy = CmsPolicyNames.CmsAdmin,
                 }
             };
             return menuItems;

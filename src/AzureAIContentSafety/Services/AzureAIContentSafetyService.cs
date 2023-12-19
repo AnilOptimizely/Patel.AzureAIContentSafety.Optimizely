@@ -2,11 +2,11 @@
 using Azure.AI.ContentSafety;
 using ImageData = Azure.AI.ContentSafety.ImageData;
 using Azure.Core;
-using AzureAIContentSafety.Interfaces;
 using AzureAIContentSafety.Helpers;
 using AzureAIContentSafety.ContentSafety.Models;
 using Microsoft.Extensions.Options;
 using EPiServer.ServiceLocation;
+using AzureAIContentSafety.Interface;
 
 namespace AzureAIContentSafety.Services
 {

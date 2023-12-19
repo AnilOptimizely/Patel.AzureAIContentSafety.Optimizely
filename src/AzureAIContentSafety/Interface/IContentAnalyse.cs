@@ -1,4 +1,4 @@
-﻿namespace AzureAIContentSafety.ContentSafety.Interface
+﻿namespace AzureAIContentSafety.Interface
 {
     public interface IContentAnalyse
     {

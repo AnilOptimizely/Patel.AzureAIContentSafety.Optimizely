@@ -1,10 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
-		<SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-		<RestorePackages>true</RestorePackages>
 	</PropertyGroup>
-    
+	
 	<PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -12,46 +10,46 @@
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <IsPackable>true</IsPackable>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	  <Version>1.0.0.8</Version>
+	  <Version>1.0.0.11</Version>
 	  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</RepositoryUrl>
 	  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</PackageProjectUrl>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <Authors>Anil Patel</Authors>
 	  <Description>Azure AI Content Safety - Integration with Optimizely CMS.</Description>
 	  <Copyright>Anil Patel 2023</Copyright>
+	  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 	  <PackageTags>Optimizely;CMS;Optimizely CMS;Azure AI Content Safety;AI</PackageTags>
 	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
-	  <AssemblyVersion>1.0.0.8</AssemblyVersion>
+	  <AssemblyVersion>1.0.0.11</AssemblyVersion>
 	  <PackageReleaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
   </PropertyGroup> 
     
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	<DebugType>portable</DebugType>
-	</PropertyGroup> 
+		<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		</PropertyGroup> 
     
 	  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<DebugType>portable</DebugType>
 	  </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="ContentSafety\AddOn\" />
-    <Folder Include="ContentSafety\Factories\" />
-    <Folder Include="ContentSafety\Controllers\" />
-    <Folder Include="ContentSafety\Services\" />
-  </ItemGroup>
+	  <ItemGroup>
+		<Folder Include="AddOn\" />
+		<Folder Include="Factories\" />
+		<Folder Include="Controllers\" />
+		<Folder Include="Services\" />
+	  </ItemGroup>
 
 	 <ItemGroup>
 		<None Include="AzureAIContentSafety.sln" />
 	 </ItemGroup>
 	<ItemGroup>
-		<EmbeddedResource Include="ContentSafety\Views\Index.cshtml" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Include=".\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
-
   <ItemGroup>
 	  <PackageReference Include="Azure.AI.ContentSafety" Version="[1.0.0-beta.1, )" NoWarn="NU5104" />
 	  <PackageReference Include="EPiServer.CMS" Version="12.24.0" />

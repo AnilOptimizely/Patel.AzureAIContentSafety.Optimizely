@@ -2,7 +2,7 @@
 using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Models;
 
-namespace AzureAIContentSafety.Interfaces
+namespace AzureAIContentSafety.Interface
 {
     public interface IAzureAIContentSafetyService
     {

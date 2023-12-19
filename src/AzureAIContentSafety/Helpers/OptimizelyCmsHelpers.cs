@@ -1,9 +1,7 @@
 ﻿using Azure.AI.ContentSafety;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using AzureAIContentSafety.Interfaces;
 using EPiServer.ServiceLocation;
 using EPiServer;
-using AzureAIContentSafety.ContentSafety.Attributes;
 using AzureAIContentSafety.ContentSafety.Models;
 using EPiServer.Core;
 using System.Reflection;
@@ -11,6 +9,8 @@ using Azure;
 using ImageData = Azure.AI.ContentSafety.ImageData;
 using Microsoft.Extensions.Options;
 using EPiServer.Logging;
+using AzureAIContentSafety.Attributes;
+using AzureAIContentSafety.Interface;
 
 namespace AzureAIContentSafety.Helpers
 {

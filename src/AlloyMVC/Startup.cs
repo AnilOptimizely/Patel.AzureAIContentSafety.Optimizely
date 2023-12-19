@@ -1,10 +1,13 @@
 using AlloyMVC.Extensions;
 using AzureAIContentSafety;
+using AzureAIContentSafety.Controllers;
 using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
+using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
+using Microsoft.Extensions.FileProviders;
 
 namespace AlloyMVC;
 
@@ -48,7 +51,7 @@ public class Startup
             options.Cookie.HttpOnly = true;
             options.Cookie.IsEssential = true;
         });
-        services.AddMvc(options => options.EnableEndpointRouting = false);
+        
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -70,7 +73,7 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapContent();
+            endpoints.MapControllers();
         });
-        app.UseMvc();
     }
 }

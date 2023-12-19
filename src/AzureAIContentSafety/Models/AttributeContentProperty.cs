@@ -1,4 +1,4 @@
-﻿using AzureAIContentSafety.ContentSafety.Attributes;
+﻿using AzureAIContentSafety.Attributes;
 using System.Reflection;
 
 namespace AzureAIContentSafety.ContentSafety.Models

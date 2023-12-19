@@ -4,7 +4,6 @@ using EPiServer.ServiceLocation;
 using EPiServer;
 using EPiServer.Web;
 using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.Interfaces;
 using AzureAIContentSafety.Services;
 using Microsoft.Extensions.DependencyInjection;
 using EPiServer.Core;
@@ -13,6 +12,7 @@ using AzureAIContentSafety.ContentSafety.Attributes;
 using AzureAIContentSafety.ContentSafety.Helpers;
 using EPiServer.Framework.Blobs;
 using Microsoft.AspNetCore.Builder;
+using AzureAIContentSafety.Interface;
 
 namespace AzureAIContentSafety.Initialization
 {

@@ -1,11 +1,12 @@
 ﻿using Azure.AI.ContentSafety;
 using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.Interfaces;
+using AzureAIContentSafety.Interface;
 using AzureAIContentSafety.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AzureAIContentSafety.Controllers
 {
+    [Route("AzureContentSafetyBlockList")]
     public class BlockListController : Controller
     {
         private readonly IAzureAIContentSafetyService _azureAIContentSafetyService;
@@ -19,14 +20,13 @@ namespace AzureAIContentSafety.Controllers
             _optimizelyCmsHelper = optimizelyCmsHelpers;
         }
 
-        [Route("/AzureContentSafetyBlockList/")]
         public IActionResult Index()
         {
             var model = new BlockListViewModel();
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
+            return View("~/Views/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.DeleteBlockList(viewModel.BlockListName);
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
-            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
+            return View("~/Views/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -54,7 +54,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.CreateNewBlockList(viewModel.BlockListName, viewModel.BlockListDescription);
-            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
+            return View("~/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -79,7 +79,7 @@ namespace AzureAIContentSafety.Controllers
                 model.ContentSafetyModel.Message = _azureAIContentSafetyService.AddNewBlockItems(viewModel.BlockListName, listInfos).FirstOrDefault();
             }
 
-            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
+            return View("~/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -93,7 +93,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.ContentSafetyModel.BlockItems = _azureAIContentSafetyService.GetBlockItems(viewModel.BlockListName);
-            return View("/ContentSafety/Views/BlockList/Index.cshtml", model);
+            return View("~/ContentSafety/Views/BlockList/Index.cshtml", model);
         }
     }
 }
