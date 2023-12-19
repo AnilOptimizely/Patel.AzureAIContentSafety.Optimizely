@@ -4,17 +4,18 @@ using EPiServer.ServiceLocation;
 using EPiServer;
 using EPiServer.Web;
 using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.Interfaces;
 using AzureAIContentSafety.Services;
 using Microsoft.Extensions.DependencyInjection;
 using EPiServer.Core;
 using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.ContentSafety.Helpers;
+using AzureAIContentSafety.Helpers;
 using EPiServer.Framework.Blobs;
 using Microsoft.AspNetCore.Builder;
 using AlloyMVC.Models;
 using AzureAIContentSafety.ContentSafety.Models;
+using AzureAIContentSafety.Interface;
+using AzureAIContentSafety.Attributes;
 
 namespace AzureAIContentSafety.Initialization
 {

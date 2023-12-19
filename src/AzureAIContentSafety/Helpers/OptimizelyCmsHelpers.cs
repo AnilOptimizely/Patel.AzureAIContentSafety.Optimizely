@@ -11,6 +11,7 @@ using Microsoft.Extensions.Options;
 using EPiServer.Logging;
 using AzureAIContentSafety.Attributes;
 using AzureAIContentSafety.Interface;
+using AzureAIContentSafety.ContentSafety.Attributes;
 
 namespace AzureAIContentSafety.Helpers
 {

@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using AlloyMVC.Models.Blocks;
+using AzureAIContentSafety.Attributes;
 using AzureAIContentSafety.ContentSafety.Attributes;
 using EPiServer.SpecializedProperties;
 

@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using EPiServer.Core;
 using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.ContentSafety.Helpers;
+using AzureAIContentSafety.Helpers;
 using EPiServer.Framework.Blobs;
 using Microsoft.AspNetCore.Builder;
 using AzureAIContentSafety.Interface;

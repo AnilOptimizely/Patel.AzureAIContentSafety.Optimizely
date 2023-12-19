@@ -26,7 +26,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            return View("~/Views/Index.cshtml", model);
+            return View("/Views/Index.cshtml", model);
         }
 
         [HttpPost]
@@ -40,7 +40,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.DeleteBlockList(viewModel.BlockListName);
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
-            return View("~/Views/Index.cshtml", model);
+            return View("/Views/Index.cshtml", model);
         }
 
         [HttpPost]

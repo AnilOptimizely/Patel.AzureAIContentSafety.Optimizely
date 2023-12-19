@@ -1,4 +1,6 @@
 ﻿using Azure.AI.ContentSafety;
+using AzureAIContentSafety.ContentSafety.Attributes;
+using AzureAIContentSafety.ContentSafety.Models;
 using AzureAIContentSafety.Models;
 using AzureAIContentSafety.Services;
 using System;
