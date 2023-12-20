@@ -3,6 +3,8 @@ using AzureAIContentSafety.Helpers;
 using AzureAIContentSafety.Interface;
 using AzureAIContentSafety.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using System.Reflection;
 
 namespace AzureAIContentSafety.Controllers
 {

@@ -20,11 +20,10 @@
 		  <PackageReadmeFile>README.md</PackageReadmeFile>
 		  <AssemblyVersion>1.0.0.21</AssemblyVersion>
 		  <PackageReleaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
-  </PropertyGroup> 
-		
+  </PropertyGroup>
+
 	<ItemGroup>
-	<!-- Never copy on publish -->
-	<Content Include="Views\**\*.cshtml" CopyToPublishDirectory="Never" />
+		<EmbeddedResource Include="\Views\**" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
 	</ItemGroup>
 	  
 	
@@ -36,16 +35,8 @@
 	</ItemGroup>
   <ItemGroup>
 	  <PackageReference Include="Azure.AI.ContentSafety" Version="[1.0.0-beta.1, )" NoWarn="NU5104" />
-	  <PackageReference Include="EPiServer.CMS" Version="12.24.0" />
-	  <PackageReference Include="EPiServer.CMS.AspNetCore.Routing" Version="12.19.0" />
-	  <PackageReference Include="EPiServer.CMS.AspNetCore.Templating" Version="12.19.0" />
-	  <PackageReference Include="EPiServer.CMS.Core" Version="12.19.0" />
-	  <PackageReference Include="EPiServer.CMS.UI" Version="12.24.0" />
-	  <PackageReference Include="EPiServer.CMS.UI.Admin" Version="12.24.0" />
-	  <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.24.0" />
-	  <PackageReference Include="EPiServer.Framework" Version="12.19.0" />
-	  <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.3" />
-	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.25" />
+	  <PackageReference Include="EPiServer.CMS.Core" Version="[12.0.3, 13.0.0)" />
+      <PackageReference Include="EPiServer.CMS.UI.Core" Version="[12.0.2, 13.0.0)" />
   </ItemGroup>
 
 </Project>
