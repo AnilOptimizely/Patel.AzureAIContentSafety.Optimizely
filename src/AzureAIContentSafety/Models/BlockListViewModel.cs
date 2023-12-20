@@ -5,10 +5,6 @@ namespace AzureAIContentSafety.Models.ViewModels
 {
     public class BlockListViewModel
     {
-        public BlockListViewModel()
-        {
-        }
-
         public List<SelectListItem> GetTextBlocklistsPages { get; set; }
         public List<SelectListItem> GetBlockItems { get; set; }
         public string DeleteItem { get; set; }
