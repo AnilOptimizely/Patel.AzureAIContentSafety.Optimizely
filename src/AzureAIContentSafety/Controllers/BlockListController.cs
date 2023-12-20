@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AzureAIContentSafety.Controllers
 {
     [Route("AzureContentSafetyBlockList")]
-    public class BlockListController : Controller
+    public sealed class BlockListController : Controller
     {
         private readonly IAzureAIContentSafetyService _azureAIContentSafetyService;
         private readonly OptimizelyCmsHelpers _optimizelyCmsHelper;
@@ -26,7 +26,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            return View("/Views/Blocklist/Index.cshtml", model);
+            return View("~/Views/Blocklist/Index.cshtml", model);
         }
 
         [HttpPost]
