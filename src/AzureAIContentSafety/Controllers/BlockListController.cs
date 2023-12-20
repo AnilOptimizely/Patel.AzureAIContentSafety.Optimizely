@@ -28,7 +28,7 @@ namespace AzureAIContentSafety.Controllers
             model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            return View("~/Views/Blocklist/Index.cshtml", model);
+            return View(model);
         }
 
         [HttpPost]
