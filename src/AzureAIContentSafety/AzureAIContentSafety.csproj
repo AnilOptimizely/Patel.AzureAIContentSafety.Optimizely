@@ -1,11 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+	
+	<PropertyGroup>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+		
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
 		  <Nullable>disable</Nullable>
-		  <ImplicitUsings>enable</ImplicitUsings>
+		  <ImplicitUsings>disable</ImplicitUsings>
 		  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		  <Version>1.0.0.24</Version>
+		  <Version>1.0.0.25</Version>
+		  <IsPackable>true</IsPackable>
 		  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</RepositoryUrl>
 		  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</PackageProjectUrl>
 		  <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -18,9 +23,16 @@
 		  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		  <RepositoryType>git</RepositoryType>
 		  <PackageReadmeFile>README.md</PackageReadmeFile>
-		  <AssemblyVersion>1.0.0.24</AssemblyVersion>
+		  <AssemblyVersion>1.0.0.25</AssemblyVersion>
 		  <PackageReleaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
+		  <Title>Patel.AzureAIContentSafety</Title>
   </PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Views\Blocklist\Index.cshtml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Content Include="Views\Blocklist\Index.cshtml" />
+	</ItemGroup>
 	<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
