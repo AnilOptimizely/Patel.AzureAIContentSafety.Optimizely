@@ -8,8 +8,6 @@ using AzureAIContentSafety.Services;
 using Microsoft.Extensions.DependencyInjection;
 using EPiServer.Core;
 using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.Helpers;
 using EPiServer.Framework.Blobs;
 using Microsoft.AspNetCore.Builder;
 using AzureAIContentSafety.Interface;
@@ -26,7 +24,6 @@ namespace AzureAIContentSafety.Initialization
         {
             context.Services.AddSingleton<IAzureAIContentSafetyService, AzureAIContentSafetyService>();
             context.Services.AddScoped<OptimizelyCmsHelpers>();
-            context.Services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         //void Events_PublishingContent(object sender, ContentEventArgs e)
