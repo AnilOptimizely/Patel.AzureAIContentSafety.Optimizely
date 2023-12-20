@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Models;
+using System.Collections.Generic;
 
 namespace AzureAIContentSafety.Interface
 {

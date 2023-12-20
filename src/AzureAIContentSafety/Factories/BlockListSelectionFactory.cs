@@ -1,6 +1,8 @@
 ﻿using AzureAIContentSafety.Helpers;
 using EPiServer.ServiceLocation;
 using EPiServer.Shell.ObjectEditing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AzureAIContentSafety.Models.AzureAIContentSafety
 {

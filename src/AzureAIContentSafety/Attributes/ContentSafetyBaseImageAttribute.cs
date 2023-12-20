@@ -1,6 +1,7 @@
 ﻿using Azure.AI.ContentSafety;
 using AzureAIContentSafety.ContentSafety.Models;
 using AzureAIContentSafety.Services;
+using System;
 using System.Collections;
 using System.Reflection;
 

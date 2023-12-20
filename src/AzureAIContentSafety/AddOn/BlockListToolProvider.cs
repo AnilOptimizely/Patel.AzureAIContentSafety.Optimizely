@@ -1,5 +1,6 @@
 ﻿using EPiServer.Authorization;
 using EPiServer.Shell.Navigation;
+using System.Collections.Generic;
 
 namespace AzureAIContentSafety.AddOn
 {

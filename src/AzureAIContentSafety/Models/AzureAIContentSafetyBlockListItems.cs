@@ -1,4 +1,6 @@
-﻿namespace AzureAIContentSafety.ContentSafety.Models
+﻿using System.Collections.Generic;
+
+namespace AzureAIContentSafety.ContentSafety.Models
 {
     public class AzureAIContentSafetyBlockListItems
     {

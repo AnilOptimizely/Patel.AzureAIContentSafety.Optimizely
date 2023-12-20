@@ -1,5 +1,6 @@
 ﻿using Azure.AI.ContentSafety;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace AzureAIContentSafety.Models.ViewModels
 {

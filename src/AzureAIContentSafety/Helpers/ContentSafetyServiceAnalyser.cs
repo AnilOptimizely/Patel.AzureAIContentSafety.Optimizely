@@ -3,6 +3,8 @@ using AzureAIContentSafety.ContentSafety.Attributes;
 using AzureAIContentSafety.Interface;
 using EPiServer.Core;
 using EPiServer.Logging;
+using System;
+using System.Collections.Generic;
 
 namespace AzureAIContentSafety.Helpers
 {

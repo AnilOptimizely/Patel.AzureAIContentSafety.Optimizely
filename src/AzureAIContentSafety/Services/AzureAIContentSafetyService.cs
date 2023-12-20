@@ -7,6 +7,10 @@ using AzureAIContentSafety.ContentSafety.Models;
 using Microsoft.Extensions.Options;
 using EPiServer.ServiceLocation;
 using AzureAIContentSafety.Interface;
+using System.Collections.Generic;
+using System;
+using System.Linq;
+using System.IO;
 
 namespace AzureAIContentSafety.Services
 {
