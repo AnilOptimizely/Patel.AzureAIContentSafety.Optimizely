@@ -9,7 +9,7 @@
 		  <Nullable>disable</Nullable>
 		  <ImplicitUsings>disable</ImplicitUsings>
 		  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		  <Version>1.0.0.26</Version>
+		  <Version>1.0.0.27</Version>
 		  <IsPackable>true</IsPackable>
 		  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</RepositoryUrl>
 		  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</PackageProjectUrl>
@@ -23,7 +23,7 @@
 		  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		  <RepositoryType>git</RepositoryType>
 		  <PackageReadmeFile>README.md</PackageReadmeFile>
-		  <AssemblyVersion>1.0.0.26</AssemblyVersion>
+		  <AssemblyVersion>1.0.0.27</AssemblyVersion>
 		  <PackageReleaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
 		  <Title>Patel.AzureAIContentSafety</Title>
   </PropertyGroup>

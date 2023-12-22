@@ -5,6 +5,7 @@ using EPiServer.Cms.Shell;
 using EPiServer.Cms.UI.AspNetIdentity;
 using EPiServer.Scheduler;
 using EPiServer.ServiceLocation;
+using EPiServer.Web.Mvc;
 using EPiServer.Web.Routing;
 using Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation;
 using Microsoft.Extensions.FileProviders;
@@ -27,7 +28,7 @@ public class Startup
             options.ContentSafetySubscriptionKey = "45efe358f4e647758e6d41451a84dba8";
             options.ContentSafetyEndpoint = "https://aniloptimizely.cognitiveservices.azure.com/";
         });
-
+        services.AddControllersWithViews().AddRazorRuntimeCompilation();
         if (_webHostingEnvironment.IsDevelopment())
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(_webHostingEnvironment.ContentRootPath, "App_Data"));

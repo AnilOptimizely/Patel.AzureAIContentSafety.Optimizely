@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>disable</Nullable>
+	<RazorCompileOnBuild>false</RazorCompileOnBuild>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
@@ -13,8 +14,6 @@
   </ItemGroup>
   
   <ItemGroup>
-	  <PackageReference Include="Azure.AI.ContentSafety" Version="[1.0.0-beta.1, )" NoWarn="NU5104" />
-	  <PackageReference Include="AzureAIContentSafety" Version="1.0.0.14" />
 	  <PackageReference Include="EPiServer.CMS" Version="12.24.0" />
 	  <PackageReference Include="EPiServer.CMS.AspNetCore.Routing" Version="12.19.0" />
 	  <PackageReference Include="EPiServer.CMS.AspNetCore.Templating" Version="12.19.0" />
@@ -24,6 +23,7 @@
 	  <PackageReference Include="EPiServer.CMS.UI.Core" Version="12.24.0" />
 	  <PackageReference Include="EPiServer.Framework" Version="12.19.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.25" />
+	  <PackageReference Include="Patel.AzureAIContentSafety-Optimizely" Version="1.0.0.27" />
 	  <PackageReference Include="Wangkanai.Detection" Version="5.2.0" />
   </ItemGroup>
   
@@ -32,7 +32,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="bin\Debug\net6.0\AzureAIContentSafety.pdb\52df3dcd092841eead5d25679bbcb3051\AzureAIContentSafety.pdb" />
-    <None Include="bin\Debug\net6.0\AzureAIContentSafety.pdb\52df3dcd092841eead5d25679bbcb305FFFFFFFF\AzureAIContentSafety.pdb" />
+    <!--<None Include="bin\Debug\net6.0\AzureAIContentSafety.pdb\52df3dcd092841eead5d25679bbcb3051\AzureAIContentSafety.pdb" />
+    <None Include="bin\Debug\net6.0\AzureAIContentSafety.pdb\52df3dcd092841eead5d25679bbcb305FFFFFFFF\AzureAIContentSafety.pdb" />-->
   </ItemGroup>
 </Project>
