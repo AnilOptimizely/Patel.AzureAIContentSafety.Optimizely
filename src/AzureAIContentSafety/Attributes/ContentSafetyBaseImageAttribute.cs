@@ -15,9 +15,6 @@ namespace AzureAIContentSafety.ContentSafety.Attributes
         /// </summary>
         public virtual bool AnalyzeImageContent => false;
         
-        public abstract void UpdateImage(ImagePropertyAccess imagePropertyAccess, AnalyzeImageResult analyseContentSafetyImageResult, 
-            AzureAIContentSafetyService azureAIContentSafetyService);
-
         protected static bool IsBooleanProperty(PropertyInfo propertyInfo)
         {
             return propertyInfo.PropertyType == typeof(bool);

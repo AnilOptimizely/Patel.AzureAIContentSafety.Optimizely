@@ -13,9 +13,5 @@ namespace AzureAIContentSafety.ContentSafety.Attributes
     {
 
         public override bool AnalyzeCMSContent => true;
-        public override void UpdateContent(AnalyzeTextResult analyseContentSafetyTextResult, AzureAIContentSafetyService azureAIContentSafetyService, ContentPropertyAccess contentPropertyAccess)
-        {
-            
-        }
     }
 }

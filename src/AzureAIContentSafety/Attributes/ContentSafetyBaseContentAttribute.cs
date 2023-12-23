@@ -16,9 +16,6 @@ namespace AzureAIContentSafety.ContentSafety.Attributes
     {
         public virtual bool AnalyzeCMSContent => false;
 
-        public abstract void UpdateContent(AnalyzeTextResult analyseContentSafetyTextResult,
-            AzureAIContentSafetyService azureAIContentSafetyService, ContentPropertyAccess contentPropertyAccess);
-
         protected static bool IsBooleanProperty(PropertyInfo propertyInfo)
         {
             return propertyInfo.PropertyType == typeof(bool);
