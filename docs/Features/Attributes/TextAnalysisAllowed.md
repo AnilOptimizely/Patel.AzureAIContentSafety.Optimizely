@@ -6,7 +6,7 @@ These categories include sexual content, violence, hate speech, and self-harm. T
 
 It may be applied to the following property types:
 
-- **Bool:** True/false indicating if Text Anaysis is able to be used.
+- **Bool:** True/false indicating if Text Analysis is able to be used.
   
 The attribute can only be appended to bool properties and is intended for use exclusively on a Start Page. 
 
