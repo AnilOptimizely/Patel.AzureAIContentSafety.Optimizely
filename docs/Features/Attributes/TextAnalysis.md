@@ -7,7 +7,7 @@ The attribute may be applied to the following property types:
 
 - **String:** String value indicating the content being used for the Text Analysis feature.
 
-The attribute can exclusively be added to string properties and is applicable to any content type derived from IContent (the base content type in Optimizely CMS).
+The attribute can exclusively be added to one or more string properties and is applicable to any content type derived from IContent (the base content type in Optimizely CMS).
 
 **Example**
 ``` C#
