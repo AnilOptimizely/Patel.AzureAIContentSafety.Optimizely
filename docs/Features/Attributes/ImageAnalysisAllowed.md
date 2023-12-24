@@ -1,14 +1,14 @@
 # [ImageAnalysisAllowed]
 
- This attribute will use the Image Detection API, as part of the Image Moderation feature within the Azure AI Content Safety service, to scan images for various categories of harmful content when uploading images within Optimizely CMS. 
- 
- These categories consist of; sexual content, violence, hate, and self harm. It is moderated using multi-severity levels.  This attribute has been developed in a way where it can be turned on and off at any time in the CMS.
+This attribute will utilise the Image Detection API, a component of the Image Moderation feature within the Azure AI Content Safety service, to analyse images for various types of inappropriate content during the image upload process within Optimizely CMS. 
 
-May be added to the following property types:
+These categories include sexual content, violence, hate speech, and self-harm. The moderation process incorporates multiple severity levels. This attribute has been designed to be easily toggled on or off within the CMS at any given time. 
+
+It may be applied to the following property types:
 
 - **Bool:** True/false indicating if Image Anaysis is able to be used.
   
-The attribute can only be added to Boolean properties and used on a Start Page. 
+The attribute can only be appended to bool properties and is intended for use exclusively on a Start Page. 
 
 **Example**
 ``` C#
