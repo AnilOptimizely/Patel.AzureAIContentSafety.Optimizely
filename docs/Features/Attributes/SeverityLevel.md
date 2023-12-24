@@ -8,7 +8,7 @@ This int value needs to be filled in with a number value between 1-6, The lower 
 
 The attribute may be applied to the following property types:
 
-- **Int:** True/false indicating if Text Analysis is able to be used.
+- **Int:** Int value indicating the severity level allowed for a category.
 
 The attribute can only be appended to int properties and is intended for use exclusively on a Start Page. 
 When creating these properties, the name of the property also needs to contain the category name (Sexual, SelfHarm,Violence, Hate) so that the CMS system can find the value, associated with the int property when carrying out the moderation.
