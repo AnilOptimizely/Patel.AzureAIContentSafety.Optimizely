@@ -15,9 +15,9 @@ The attribute can only be appended to bool properties and is intended for use ex
 public class StartPage : SitePageData
 {
    [Display(GroupName = SystemTabNames.Content,
-   Order = 10,
-   Description = "Boolean to determine if Image Detection API for Azure AI Content Safety is allowed",
-   Name = "Image Analysis Allowed")]
+       Order = 10,
+       Description = "Boolean to determine if Image Detection API for Azure AI Content Safety is allowed",
+       Name = "Image Analysis Allowed")]
    [ImageAnalysisAllowed]
    public virtual bool AnalyseImages { get; set; }
 }
