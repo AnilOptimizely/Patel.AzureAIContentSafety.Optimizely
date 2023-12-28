@@ -12,10 +12,5 @@ namespace AzureAIContentSafety.ContentSafety.Attributes
     public class ImageAnalysisAllowedAttribute : ContentSafetyBaseImageAttribute
     {
         public override bool AnalyzeImageContent => true;
-
-        public override void UpdateImage(ImagePropertyAccess imagePropertyAccess, AnalyzeImageResult analyseContentSafetyImageResult, AzureAIContentSafetyService azureAIContentSafetyService)
-        {
-            
-        }
     }
 }
