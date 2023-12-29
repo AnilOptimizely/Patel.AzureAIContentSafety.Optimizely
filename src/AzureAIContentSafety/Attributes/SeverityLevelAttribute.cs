@@ -1,9 +1,7 @@
 ﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.ContentSafety.Models;
-using AzureAIContentSafety.Models;
-using AzureAIContentSafety.Services;
-namespace AzureAIContentSafety.Attributes
+using Patel.AzureAIContentSafety.Optimizely.Attributes;
+
+namespace Patel.AzureAIContentSafety.Optimizely.Attributes
 {
     public class SeverityLevelAttribute : ContentSafetyBaseContentAttribute
     {

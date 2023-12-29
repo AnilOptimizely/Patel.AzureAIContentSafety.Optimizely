@@ -1,6 +1,4 @@
 ﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Models;
-using AzureAIContentSafety.Services;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureAIContentSafety.ContentSafety.Attributes
+namespace Patel.AzureAIContentSafety.Optimizely.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class ContentSafetyBaseContentAttribute : Attribute

@@ -1,4 +1,4 @@
-﻿namespace AzureAIContentSafety.Interface
+﻿namespace Patel.AzureAIContentSafety.Optimizely.Interface
 {
     public interface IContentAnalyse
     {

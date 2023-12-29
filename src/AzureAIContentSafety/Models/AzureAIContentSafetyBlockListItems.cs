@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AzureAIContentSafety.ContentSafety.Models
+namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class AzureAIContentSafetyBlockListItems
     {

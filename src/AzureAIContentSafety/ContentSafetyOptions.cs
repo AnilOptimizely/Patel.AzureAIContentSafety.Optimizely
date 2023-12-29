@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureAIContentSafety
+namespace Patel.AzureAIContentSafety.Optimizely
 {
     [ServiceConfiguration]
     public class ContentSafetyOptions

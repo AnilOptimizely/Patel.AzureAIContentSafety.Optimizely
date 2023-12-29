@@ -1,12 +1,13 @@
 ﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Attributes;
-using AzureAIContentSafety.Interface;
+using Patel.AzureAIContentSafety.Optimizely.Attributes;
+using AzureAIContentSafety.Helpers;
 using EPiServer.Core;
 using EPiServer.Logging;
+using Patel.AzureAIContentSafety.Optimizely.Interface;
 using System;
 using System.Collections.Generic;
 
-namespace AzureAIContentSafety.Helpers
+namespace Patel.AzureAIContentSafety.Optimizely.Helpers
 {
     public static class ContentSafetyServiceAnalyser
     {

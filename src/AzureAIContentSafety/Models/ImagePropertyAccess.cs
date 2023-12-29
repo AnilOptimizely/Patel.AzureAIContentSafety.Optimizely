@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using EPiServer.Core;
 
-namespace AzureAIContentSafety.ContentSafety.Models
+namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class ImagePropertyAccess
     {

@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureAIContentSafety.ContentSafety.Models
+namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class ContentPropertyAccess
     {

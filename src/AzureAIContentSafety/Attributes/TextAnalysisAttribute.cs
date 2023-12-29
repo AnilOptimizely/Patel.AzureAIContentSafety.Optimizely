@@ -1,13 +1,14 @@
 ﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Models;
-using AzureAIContentSafety.Services;
+using Patel.AzureAIContentSafety.Optimizely.Models;
+using Patel.AzureAIContentSafety.Optimizely.Services;
+using Patel.AzureAIContentSafety.Optimizely.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AzureAIContentSafety.ContentSafety.Attributes
+namespace Patel.AzureAIContentSafety.Optimizely.ContentSafety.Attributes
 {
     public class TextAnalysisAttribute : ContentSafetyBaseContentAttribute
     {

@@ -1,11 +1,7 @@
-﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Models;
-using AzureAIContentSafety.Services;
-using System;
-using System.Collections;
+﻿using System;
 using System.Reflection;
 
-namespace AzureAIContentSafety.ContentSafety.Attributes
+namespace Patel.AzureAIContentSafety.Optimizely.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public abstract class ContentSafetyBaseImageAttribute : Attribute
@@ -14,7 +10,7 @@ namespace AzureAIContentSafety.ContentSafety.Attributes
         /// To be overridden in derived class. Flag if the Update method needs imageAnalyzerResult to be populated.
         /// </summary>
         public virtual bool AnalyzeImageContent => false;
-        
+
         protected static bool IsBooleanProperty(PropertyInfo propertyInfo)
         {
             return propertyInfo.PropertyType == typeof(bool);

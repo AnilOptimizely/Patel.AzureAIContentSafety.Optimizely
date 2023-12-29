@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace AzureAIContentSafety.ContentSafety.Models
+namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class ContentProperty
     {
