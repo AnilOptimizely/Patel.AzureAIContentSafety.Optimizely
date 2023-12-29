@@ -313,7 +313,7 @@ namespace AzureAIContentSafety.Helpers
             if(listStrings.Any()) 
             {
                 listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Image Analysis has detected ");
-                listStrings.Insert(listStrings.Count + 1, " Please review image and upload again.");
+                listStrings.Add(" Please review image and upload again.");
                 result = string.Join(", ", listStrings.ToArray());
             }
             return result;
@@ -572,7 +572,7 @@ namespace AzureAIContentSafety.Helpers
             if (listStrings.Any())
             {
                 listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Text Analysis has detected ");
-                listStrings.Insert(listStrings.Count + 1, " Please review content and publish again.");
+                listStrings.Add(" Please review content and publish again.");
                 result = string.Join(", ", listStrings.ToArray());
             }
             return result;
