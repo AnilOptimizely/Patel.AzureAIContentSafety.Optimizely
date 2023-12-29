@@ -1,5 +1,6 @@
 # Patel-AzureAIContentSafety
 
+
 ## Intro
 
 This is an Add-On which integrates Azure AI Content Safety within Optimizely CMS 12. The Add-On provides users, the features and ability to integrate various functions which are part of the Azure AI Content Safety Service within Optimizely CMS to allow content users to moderate content which is being published within the CMS. Some examples of functionality within this Add-On consists of the following.
