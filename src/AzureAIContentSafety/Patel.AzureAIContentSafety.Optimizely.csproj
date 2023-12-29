@@ -11,8 +11,8 @@
 		  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		  <Version>1.0.0.0</Version>
 		  <IsPackable>true</IsPackable>
-		  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</RepositoryUrl>
-		  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</PackageProjectUrl>
+		  <RepositoryUrl>https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely</RepositoryUrl>
+		  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely</PackageProjectUrl>
 		  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 		  <Owners>Anil Patel</Owners>
 		  <Authors>Anil Patel</Authors>
