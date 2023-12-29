@@ -58,7 +58,7 @@ In the extension method in the Startup.Configure method, the following code will
 });
 ```
 ## Attributes
-Please visit [here](https://github.com/AnilOptimizely/Patel-Azure.AI.Language.Optimizely/blob/develop/docs/Attributes.md) to find out more information about the various attributes that are contained within this Add-On and how they work.
+Please visit [here](https://github.com/AnilOptimizely/Patel-AzureAIContentSafety/blob/main/docs/Features/Attributes.md) to find out more information about the various attributes that are contained within this Add-On and how they work.
 
 ## More Information
 
