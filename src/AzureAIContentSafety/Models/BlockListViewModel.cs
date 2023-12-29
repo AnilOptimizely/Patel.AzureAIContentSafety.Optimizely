@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 
-namespace AzureAIContentSafety.Models.ViewModels
+namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class BlockListViewModel
     {

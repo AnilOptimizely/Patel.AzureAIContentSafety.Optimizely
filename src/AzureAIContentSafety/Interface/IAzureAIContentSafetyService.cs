@@ -1,9 +1,9 @@
 ﻿using Azure;
 using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Models;
+using Patel.AzureAIContentSafety.Optimizely.Models;
 using System.Collections.Generic;
 
-namespace AzureAIContentSafety.Interface
+namespace Patel.AzureAIContentSafety.Optimizely.Interface
 {
     public interface IAzureAIContentSafetyService
     {

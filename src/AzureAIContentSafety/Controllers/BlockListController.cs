@@ -1,14 +1,14 @@
 ﻿using Azure.AI.ContentSafety;
 using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.Interface;
-using AzureAIContentSafety.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
+using Patel.AzureAIContentSafety.Optimizely.Interface;
+using Patel.AzureAIContentSafety.Optimizely.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace AzureAIContentSafety.Controllers
+namespace Patel.AzureAIContentSafety.Optimizely.Controllers
 {
     [Route("AzureContentSafetyBlockList")]
     public sealed class BlockListController : Controller

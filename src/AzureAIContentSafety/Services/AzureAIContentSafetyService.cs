@@ -3,16 +3,16 @@ using Azure.AI.ContentSafety;
 using ImageData = Azure.AI.ContentSafety.ImageData;
 using Azure.Core;
 using AzureAIContentSafety.Helpers;
-using AzureAIContentSafety.ContentSafety.Models;
 using Microsoft.Extensions.Options;
 using EPiServer.ServiceLocation;
-using AzureAIContentSafety.Interface;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.IO;
+using Patel.AzureAIContentSafety.Optimizely.Interface;
+using Patel.AzureAIContentSafety.Optimizely.Models;
 
-namespace AzureAIContentSafety.Services
+namespace Patel.AzureAIContentSafety.Optimizely.Services
 {
     public class AzureAIContentSafetyService : IAzureAIContentSafetyService
     {

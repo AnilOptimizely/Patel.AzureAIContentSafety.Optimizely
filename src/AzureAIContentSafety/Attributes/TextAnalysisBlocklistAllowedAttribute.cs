@@ -1,8 +1,9 @@
 ﻿using Azure.AI.ContentSafety;
-using AzureAIContentSafety.ContentSafety.Models;
-using AzureAIContentSafety.Services;
+using Patel.AzureAIContentSafety.Optimizely.Models;
+using Patel.AzureAIContentSafety.Optimizely.Services;
+using Patel.AzureAIContentSafety.Optimizely.Attributes;
 
-namespace AzureAIContentSafety.ContentSafety.Attributes
+namespace Patel.AzureAIContentSafety.Optimizely.ContentSafety.Attributes
 {
     public class TextAnalysisBlocklistAllowedAttribute : ContentSafetyBaseContentAttribute
     {

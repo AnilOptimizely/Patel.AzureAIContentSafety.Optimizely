@@ -2,7 +2,7 @@
 @using EPiServer.ServiceLocation
 @using EPiServer.Shell.Navigation
 @using Microsoft.AspNetCore.Http
-@using AzureAIContentSafety.Models.ViewModels
+@using Patel.AzureAIContentSafety.Optimizely.Models
 @model BlockListViewModel
 @{
     Layout = null;
@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Azure AI Content Safety BlockList Tool</title>
+    <title>Azure AI Content Safety BlockList Management Tool</title>
     <!-- Shell -->
     @ClientResources.RenderResources("ShellCore")
     <!-- LightTheme -->
@@ -40,7 +40,7 @@
     <div class="container" @Html.ApplyPlatformNavigation()>
         <div class="epi-main-header">
             <h2 class="epi-uif-typography mdc-typography--headline4">
-                Azure AI Content Safety Tool
+                Azure AI Content Safety BlockList Management Tool
             </h2>
         </div>
 

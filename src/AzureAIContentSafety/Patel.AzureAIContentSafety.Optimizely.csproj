@@ -9,23 +9,24 @@
 		  <Nullable>disable</Nullable>
 		  <ImplicitUsings>disable</ImplicitUsings>
 		  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		  <Version>1.0.0.28</Version>
+		  <Version>1.0.0.0</Version>
 		  <IsPackable>true</IsPackable>
 		  <RepositoryUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</RepositoryUrl>
 		  <PackageProjectUrl>https://github.com/AnilOptimizely/Patel-AzureAIContentSafety</PackageProjectUrl>
 		  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+		  <Owners>Anil Patel</Owners>
 		  <Authors>Anil Patel</Authors>
 		  <Description>Azure AI Content Safety - Integration with Optimizely CMS.</Description>
-		  <Copyright>Anil Patel 2023</Copyright>
+		  <Copyright>Anil Patel 2024</Copyright>
 		  <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		  <EnableDefaultContentItems>false</EnableDefaultContentItems>
 		  <PackageTags>Optimizely;CMS;Optimizely CMS;Azure AI Content Safety;AI</PackageTags>
 		  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		  <RepositoryType>git</RepositoryType>
 		  <PackageReadmeFile>README.md</PackageReadmeFile>
-		  <AssemblyVersion>1.0.0.28</AssemblyVersion>
+		  <AssemblyVersion>1.0.0.0</AssemblyVersion>
 		  <PackageReleaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</PackageReleaseNotes>
-		  <Title>Patel.AzureAIContentSafety</Title>
+		  <Title>Patel.AzureAIContentSafety.Optimizely</Title>
   </PropertyGroup>
 	<ItemGroup>
 	  <None Remove="Views\Blocklist\Index.cshtml" />
@@ -43,9 +44,6 @@
 	  <PackageReference Include="Azure.AI.ContentSafety" Version="[1.0.0-beta.1, )" NoWarn="NU5104" />
 	  <PackageReference Include="EPiServer.CMS.Core" Version="[12.0.3, 13.0.0)" />
       <PackageReference Include="EPiServer.CMS.UI.Core" Version="[12.0.2, 13.0.0)" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Initialization\" />
   </ItemGroup>
 
 </Project>

@@ -4,7 +4,7 @@ using EPiServer.Shell.ObjectEditing;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AzureAIContentSafety.Models.AzureAIContentSafety
+namespace Patel.AzureAIContentSafety.Optimizely.Factories
 {
     public class BlockListSelectionFactory : ISelectionFactory
     {

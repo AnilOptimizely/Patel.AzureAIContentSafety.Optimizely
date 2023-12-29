@@ -1,7 +1,4 @@
-﻿
-using AzureAIContentSafety.ContentSafety.Models;
-
-namespace AzureAIContentSafety.Models.ViewModels
+﻿namespace Patel.AzureAIContentSafety.Optimizely.Models
 {
     public class ContentSafetyModel
     {
