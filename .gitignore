@@ -2,4 +2,5 @@
 ## EPiServer Files
 ######################
 *License.config
-.vs
+.vs/
+{Patel.AzureAIContentSafety.Optimizely}/.vs
