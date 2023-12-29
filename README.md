@@ -1,4 +1,4 @@
-# Patel-AzureAIContentSafety
+# Patel.AzureAIContentSafety.Optimizely
 
 
 ## Intro
