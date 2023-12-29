@@ -61,6 +61,14 @@ namespace Patel.AzureAIContentSafety.Optimizely.Initialization
                     e.CancelAction = true;
                     e.Content = content;
                 }
+
+                var processTextBlocklist = OptimizelyCmsHelpers.ProcessTextAnalysisBlocklist(getStartPage, content);
+                if (!string.IsNullOrWhiteSpace(processTextBlocklist))
+                {
+                    e.CancelReason = processTextBlocklist;
+                    e.CancelAction = true;
+                    e.Content = content;
+                }
             }
         }
 

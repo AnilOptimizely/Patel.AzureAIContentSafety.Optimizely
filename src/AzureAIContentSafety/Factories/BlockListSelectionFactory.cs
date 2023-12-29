@@ -19,7 +19,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Factories
             {
                 foreach (var search in searchResult)
                 {
-                    result.Add(new SelectItem() { Text = search.Description, Value = search.BlocklistName });
+                    result.Add(new SelectItem() { Text = search.BlocklistName, Value = search.BlocklistName });
                 }
 
                 return result;

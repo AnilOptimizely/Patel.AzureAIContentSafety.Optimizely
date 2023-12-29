@@ -312,8 +312,8 @@ namespace AzureAIContentSafety.Helpers
             }
             if(listStrings.Any()) 
             {
-                listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Image Analysis has detected ");
-                listStrings.Add(" Please review image and upload again.");
+                listStrings.Insert(0, "Unable to publish Azure AI Content Safety - Image Analysis has detected: ");
+                listStrings.Add("Please review image and upload again.");
                 result = string.Join(", ", listStrings.ToArray());
             }
             return result;
@@ -448,12 +448,12 @@ namespace AzureAIContentSafety.Helpers
                                     string hateText;
                                     if (hateResults.Count == 1)
                                     {
-                                        hateText = string.Format("1 count of Violence related content in the content published. ");
+                                        hateText = string.Format("1 count of Hate related content in the content published. ");
                                         listStrings.Add(hateText);
                                     }
                                     if (hateResults.Count > 1)
                                     {
-                                        hateText = string.Format("{0} counts of Violence related content in the content published. ", hateResults.Count);
+                                        hateText = string.Format("{0} counts of Hate related content in the content published. ", hateResults.Count);
                                         listStrings.Add(hateText);
                                     }
                                 }
@@ -462,12 +462,12 @@ namespace AzureAIContentSafety.Helpers
                                     string sexualText;
                                     if (sexualResults.Count == 1)
                                     {
-                                        sexualText = string.Format("1 count of Violence related content in the content published. ");
+                                        sexualText = string.Format("1 count of Sexual related content in the content published. ");
                                         listStrings.Add(sexualText);
                                     }
                                     if (sexualResults.Count > 1)
                                     {
-                                        sexualText = string.Format("{0} counts of Violence related content in the content published. ", sexualResults.Count);
+                                        sexualText = string.Format("{0} counts of Sexual related content in the content published. ", sexualResults.Count);
                                         listStrings.Add(sexualText);
                                     }
                                 }
@@ -476,12 +476,12 @@ namespace AzureAIContentSafety.Helpers
                                     string selfHarmText;
                                     if (selfHarmResults.Count == 1)
                                     {
-                                        selfHarmText = string.Format("1 count of Violence related content in the content published. ");
+                                        selfHarmText = string.Format("1 count of Self Harm related content in the content published. ");
                                         listStrings.Add(selfHarmText);
                                     }
                                     if (selfHarmResults.Count > 1)
                                     {
-                                        selfHarmText = string.Format("{0} counts of Violence related content in the content published. ", selfHarmResults.Count);
+                                        selfHarmText = string.Format("{0} counts of Self Harm related content in the content published. ", selfHarmResults.Count);
                                         listStrings.Add(selfHarmText);
                                     }
                                 }
@@ -498,6 +498,20 @@ namespace AzureAIContentSafety.Helpers
                     return "Please only have 1 CMS boolean property with attribute TextAnalysisAllowed";
                 }
             }
+
+            if (listStrings.Any())
+            {
+                listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Text Analysis has detected ");
+                listStrings.Add(" Please review content and publish again.");
+                result = string.Join(", ", listStrings.ToArray());
+            }
+            return result;
+        }
+
+        public static string ProcessTextAnalysisBlocklist(IContent startPage, IContent content)
+        {
+            var result = "";
+            var listStrings = new List<string>();
 
             var detectIfTextAnalysisBlocklistAllowed = GetPagePropertiesWithAttribute(startPage, typeof(TextAnalysisBlocklistAllowedAttribute));
 
