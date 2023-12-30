@@ -1,6 +1,5 @@
 # Patel.AzureAIContentSafety.Optimizely
 
-
 ## Intro
 
 This is an Add-On which integrates Azure AI Content Safety within Optimizely CMS 12. The Add-On provides users, the features and ability to integrate various functions which are part of the Azure AI Content Safety Service within Optimizely CMS to allow content users to moderate content which is being published within the CMS. Some examples of functionality within this Add-On consists of the following.
@@ -8,6 +7,7 @@ This is an Add-On which integrates Azure AI Content Safety within Optimizely CMS
 - [Image Analysis](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
 - [Text Analysis](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview)
 - [Blocklist Management](https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview) 
+
 
 ## Installation
 
@@ -29,6 +29,7 @@ After installing the package, the following steps are required to be done to set
 5. When resource has been created, Navigate to the Keys and Endpoint section. An example screenshot of this is shown below
 
 ![ResourceKey.](docs/Features/Images/ContentSafetyResourceKeyEndpointInfo.JPG)
+
 
 7. Make a note of the Key and Endpoint variables - This will be needed in the Configuration section of Setup.
 
@@ -58,8 +59,5 @@ In the extension method in the Startup.Configure method, the following code will
 });
 ```
 ## Attributes
+
 Please visit [here](https://github.com/AnilOptimizely/Patel-AzureAIContentSafety/blob/main/docs/Features/Attributes.md) to find out more information about the various attributes that are contained within this Add-On and how they work.
-
-## More Information
-
-Blog posts added soon
