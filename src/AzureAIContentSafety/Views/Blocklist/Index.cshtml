@@ -1,0 +1,262 @@
+﻿@using EPiServer.Framework.Web.Resources
+@using EPiServer.ServiceLocation
+@using EPiServer.Shell.Navigation
+@using Microsoft.AspNetCore.Http
+@using Patel.AzureAIContentSafety.Optimizely.Models
+@model BlockListViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Azure AI Content Safety BlockList Management Tool</title>
+    <!-- Shell -->
+    @ClientResources.RenderResources("ShellCore")
+    <!-- LightTheme -->
+    @ClientResources.RenderResources("ShellCoreLightTheme")
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <style>
+        a:visited {
+            color: #fff;
+        }
+    </style> @* override epi style *@
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">*@
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    @Html.CreatePlatformNavigationMenu()
+
+    <div class="container" @Html.ApplyPlatformNavigation()>
+        <div class="epi-main-header">
+            <h2 class="epi-uif-typography mdc-typography--headline4">
+                Azure AI Content Safety BlockList Management Tool
+            </h2>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b class="panel-title"><a href="#" data-toggle="collapse" data-target="#addPanel">Create Block List</a></b>
+            </div>
+            <div id="addPanel" class="panel-collapse panel-body collapse">
+                @using (Html.BeginForm("CreateBlockList", "BlockList", new { }, FormMethod.Post, true, new { @class = "form-inline" }))
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">BlockList Name</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Textarea to enter Chat GPT Text Prompt">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.TextBoxFor(x=>x.BlockListName, new{@class="form-control input-sm",placeholder="Enter BlockList Name here"})
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">Blocklist Description</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Model">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.TextAreaFor(x=>x.BlockListDescription, new{@class="form-control input-sm",placeholder="Select Blocklist Description"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm">Generate BlockList</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b class="panel-title"><a href="#" data-toggle="collapse" data-target="#addEditBlock">Add New BlockList Item</a></b>
+            </div>
+            <div id="addEditBlock" class="panel-collapse panel-body collapse">
+                @using (Html.BeginForm("AddBlockItem", "BlockList", new { }, FormMethod.Post, true, new { @class = "form-inline" }))
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">Choose Blocklist</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Choose Blocklist">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.DropDownListFor(x=>x.BlockListName, Model.GetTextBlocklistsPages, new{@class="form-control input-sm",placeholder="Choose Blocklist"})
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">Block Item Name</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Textbox to enter Block Item Name">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.TextBoxFor(x=>x.TextBlockItemInfo, new{@class="form-control input-sm",placeholder="Enter Block Item Name"})
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm">Add New BlockList Item</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b class="panel-title"><a href="#" data-toggle="collapse" data-target="#translate">Delete Blocklist</a></b>
+            </div>
+            <div id="translate" class="panel-collapse panel-body collapse">
+                @using (Html.BeginForm("DeleteBlockList", "BlockList", new { }, FormMethod.Post, true, new { @class = "form-inline" }))
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">Choose Blocklist</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Dropdown to select Optimizely Page">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.DropDownListFor(x=>x.BlockListName, Model.GetTextBlocklistsPages, new{@class="form-control input-sm",placeholder="Select Block"})
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm">Delete BlockList</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b class="panel-title"><a href="#" data-toggle="collapse" data-target="#getItems">Get BlockList Items</a></b>
+            </div>
+            <div id="getItems" class="panel-collapse panel-body collapse">
+                @using (Html.BeginForm("GetBlockListItems", "BlockList", new { }, FormMethod.Post, true, new { @class = "form-inline" }))
+                {
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-sm">
+                                <label class="lb-sm" for="">Choose Blocklist</label>
+                                <a data-toggle="tooltip" class="tooltipLink" data-original-title="Choose Blocklist">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
+                                @Html.DropDownListFor(x=>x.BlockListName, Model.GetTextBlocklistsPages, new{@class="form-control input-sm",placeholder="Choose Blocklist"})
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm">Get Block List Items</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @if(Model.BlockLists.Any())
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b class="panel-title"><a href="#" data-toggle="collapse" data-target="#getBlockList">BlockLists</a></b>
+                </div>
+                <div id="getBlockList" class="panel-collapse panel-body collapse">
+                    @if (Model.BlockLists.Any())
+                    {
+                        foreach (var blocklist in Model.BlockLists)
+                        {
+                            <h3 style="font-weight: bold">@blocklist.BlocklistName</h3>
+                            <h4>
+                                @blocklist.Description
+                            </h4>
+                        }
+                    }
+                </div>
+            </div>
+        }
+        @if (Model.ContentSafetyModel != null)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <b class="panel-title">Azure AI Content Safety Summary</b>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @if (!string.IsNullOrWhiteSpace(Model.ContentSafetyModel.Message))
+                            {
+                                <p>@Model.ContentSafetyModel.Message</p>
+                            }
+                            @if (Model.ContentSafetyModel.BlockItems != null && Model.ContentSafetyModel.BlockItems.BlockItems.Any())
+                            {
+                                <h3>@Model.ContentSafetyModel.BlockItems.BlockListName</h3>
+                                foreach(var blockitem in Model.ContentSafetyModel.BlockItems.BlockItems)
+                                {
+                                    <p>@blockitem</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <style>
+        .lb-sm {
+            font-size: 12px;
+        }
+
+        .container {
+            padding-top: 85px;
+        }
+
+        .epi-uif-list-item-text.mdc-list-item__text {
+            font-size: 15px;
+        }
+
+        .epi-pn-navigation .mdc-top-app-bar__title {
+            font-size: 14px;
+        }
+
+        .epi-pn-navigation .mdc-tab {
+            font-size: 14px;
+        }
+
+        .table-sm {
+            font-size: 12px;
+        }
+
+        .input-xs {
+            min-height: 10px;
+        }
+
+        .row {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        $("a.tooltipLink").tooltip();
+    </script>
+</body>
+</html>
+
+
+
+
