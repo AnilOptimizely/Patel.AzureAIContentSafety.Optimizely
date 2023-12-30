@@ -14,7 +14,6 @@ using System.Linq;
 using System;
 using System.IO;
 using EPiServer.Framework.Blobs;
-using Patel.AzureAIContentSafety.Optimizely.Helpers;
 using Patel.AzureAIContentSafety.Optimizely.Interface;
 using Patel.AzureAIContentSafety.Optimizely;
 using Patel.AzureAIContentSafety.Optimizely.Models;
@@ -25,18 +24,11 @@ namespace AzureAIContentSafety.Helpers
     public class OptimizelyCmsHelpers
     {
         protected readonly Injected<IAzureAIContentSafetyService> _azureContentSafetyService;
-        private readonly IContentLoader _contentLoader;
-        private  static IOptions<ContentSafetyOptions> _configuration;
+        private static IOptions<ContentSafetyOptions> _configuration;
         private static IOptions<ContentSafetyOptions> Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IOptions<ContentSafetyOptions>>();
-
-        private  static readonly string ContentSafetySubscriptionKey = Configuration.Value.ContentSafetySubscriptionKey;
-        private  static readonly string ContentSafetyEndpoint = Configuration.Value.ContentSafetyEndpoint;
-        private  readonly ILogger Log = LogManager.GetLogger();
-
-        public OptimizelyCmsHelpers(IContentLoader contentLoader)
-        {
-            _contentLoader = contentLoader;
-        }
+        private static readonly string ContentSafetySubscriptionKey = Configuration.Value.ContentSafetySubscriptionKey;
+        private static readonly string ContentSafetyEndpoint = Configuration.Value.ContentSafetyEndpoint;
+        private readonly ILogger Log = LogManager.GetLogger();
 
         public List<SelectListItem> GetTextBlockLists()
         {
@@ -91,7 +83,7 @@ namespace AzureAIContentSafety.Helpers
         public static AnalyzeImageResult AnalyseImage(string imageFilePath)
         {
             // Example: analyze image
-            ImageData image = new ImageData() { Content = BinaryData.FromBytes(File.ReadAllBytes(imageFilePath)) };
+            ImageData image = new() { Content = BinaryData.FromBytes(File.ReadAllBytes(imageFilePath)) };
             var request = new AnalyzeImageOptions(image);
 
             Response<AnalyzeImageResult> response;
@@ -222,7 +214,6 @@ namespace AzureAIContentSafety.Helpers
             }
         }
 
-        
         public static string ProcessImageAnalysis(IContent startPage, EPiServer.Core.ImageData image)
         {
             var result = "";
@@ -243,7 +234,7 @@ namespace AzureAIContentSafety.Helpers
                             var path = fileBlob.FilePath;
                             if (!string.IsNullOrWhiteSpace(path))
                             {
-                                var analyseImage = ContentSafetyServiceAnalyser.AnalyzeImage(path, image);
+                                var analyseImage = AnalyseImage(path);
                                 if (analyseImage != null)
                                 {
                                     var retrieveSeverityLevelValues = GetPagePropertiesWithAttribute(startPage, typeof(SeverityLevelAttribute));
@@ -264,7 +255,7 @@ namespace AzureAIContentSafety.Helpers
                                                 {
                                                     if (analyseImage.SexualResult.Severity > severityLevelCMS)
                                                     {
-                                                        var message = string.Format(" Sexual content. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.SexualResult.Severity, severityLevelCMS);
+                                                        var message = string.Format("Sexual content. Severity Level Detected is : {0} and the Severity Level allowed is : {1}", analyseImage.SexualResult.Severity, severityLevelCMS);
                                                         listStrings.Add(message);
                                                     }
                                                 }
@@ -272,7 +263,7 @@ namespace AzureAIContentSafety.Helpers
                                                 {
                                                     if (analyseImage.SelfHarmResult.Severity > severityLevelCMS)
                                                     {
-                                                        var message = string.Format(" Self Harm content. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.HateResult.Severity, severityLevelCMS);
+                                                        var message = string.Format("Self Harm content. Severity Level Detected is : {0} and the Severity Level allowed is : {1}", analyseImage.HateResult.Severity, severityLevelCMS);
                                                         listStrings.Add(message);
                                                     }
                                                 }
@@ -280,7 +271,7 @@ namespace AzureAIContentSafety.Helpers
                                                 {
                                                     if (analyseImage.ViolenceResult.Severity > severityLevelCMS)
                                                     {
-                                                        var message = string.Format(" Violent content. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.ViolenceResult.Severity, severityLevelCMS);
+                                                        var message = string.Format("Violent content. Severity Level Detected is : {0} and the Severity Level allowed is : {1}", analyseImage.ViolenceResult.Severity, severityLevelCMS);
                                                         listStrings.Add(message);
                                                     }
 
@@ -289,7 +280,7 @@ namespace AzureAIContentSafety.Helpers
                                                 {
                                                     if (analyseImage.HateResult.Severity > severityLevelCMS)
                                                     {
-                                                        var message = string.Format(" Hate content. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.SelfHarmResult.Severity, severityLevelCMS);
+                                                        var message = string.Format("Hate content. Severity Level Detected is : {0} and the Severity Level allowed is : {1} , ", analyseImage.SelfHarmResult.Severity, severityLevelCMS);
                                                         listStrings.Add(message);
                                                     }
                                                 }
@@ -310,22 +301,21 @@ namespace AzureAIContentSafety.Helpers
                     return "Please only have 1 CMS boolean property with attribute ImageAnalysisAllowed";
                 }
             }
-            if(listStrings.Any()) 
+            if (listStrings.Any())
             {
-                listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Image Analysis has detected ");
-                listStrings.Insert(listStrings.Count + 1, " Please review image and upload again.");
-                result = string.Join(", ", listStrings.ToArray());
+                listStrings.Insert(0, "Unable to publish Azure AI Content Safety - Image Analysis has detected:");
+                listStrings.Add("Please review image and upload again.");
+                result = string.Join(". ", listStrings.ToArray());
             }
             return result;
         }
 
-        public static string ProcessTextAnalysis(IContent startPage, IContent content)
+        public static List<string> ProcessTextAnalysis(IContent startPage, IContent content)
         {
-            var result = "";
             var listStrings = new List<string>();
 
             var detectIfTextAnalysisAllowed = GetPagePropertiesWithAttribute(startPage, typeof(TextAnalysisAllowedAttribute));
-            
+
             if (detectIfTextAnalysisAllowed.Any() && detectIfTextAnalysisAllowed.Count == 1)
             {
                 var getFirstDefaultChosenBlocklistOption = detectIfTextAnalysisAllowed.FirstOrDefault();
@@ -344,7 +334,7 @@ namespace AzureAIContentSafety.Helpers
                                 if (checkObjectValueIsNotNull != null)
                                 {
                                     var getTextAnalysisValue = attribute.Property.GetValue(attribute.Content).ToString();
-                                    var analyseText = ContentSafetyServiceAnalyser.AnalyseText(getTextAnalysisValue, content);
+                                    var analyseText = AnalyseText(getTextAnalysisValue);
                                     listTextAnalysed.Add(analyseText);
                                 }
                                 else
@@ -356,7 +346,7 @@ namespace AzureAIContentSafety.Helpers
                         if (listTextAnalysed.Any())
                         {
                             var retrieveSeverityLevelValues = GetPagePropertiesWithAttribute(startPage, typeof(SeverityLevelAttribute));
-                            
+
                             var violenceResults = new List<TextAnalyzeSeverityResult>();
                             var hateResults = new List<TextAnalyzeSeverityResult>();
                             var sexualResults = new List<TextAnalyzeSeverityResult>();
@@ -429,17 +419,17 @@ namespace AzureAIContentSafety.Helpers
 
                             if (violenceResults.Any() || selfHarmResults.Any() || sexualResults.Any() || hateResults.Any())
                             {
-                                var violenceText = "";
                                 if (violenceResults.Any())
                                 {
+                                    string violenceText;
                                     if (violenceResults.Count == 1)
                                     {
-                                        violenceText = string.Format("1 count of Violence related content in the content published. ");
+                                        violenceText = string.Format("1 count of Violence related content that is about to be published");
                                         listStrings.Add(violenceText);
                                     }
                                     if (violenceResults.Count > 1)
                                     {
-                                        violenceText = string.Format("{0} counts of Violence related content in the content published. ", violenceResults.Count);
+                                        violenceText = string.Format("{0} counts of Violence related content that is about to be published", violenceResults.Count);
                                         listStrings.Add(violenceText);
                                     }
                                 }
@@ -448,12 +438,12 @@ namespace AzureAIContentSafety.Helpers
                                     string hateText;
                                     if (hateResults.Count == 1)
                                     {
-                                        hateText = string.Format("1 count of Violence related content in the content published. ");
+                                        hateText = string.Format("1 count of Hate related content that is about to be published");
                                         listStrings.Add(hateText);
                                     }
                                     if (hateResults.Count > 1)
                                     {
-                                        hateText = string.Format("{0} counts of Violence related content in the content published. ", hateResults.Count);
+                                        hateText = string.Format("{0} counts of Hate related content that is about to be published", hateResults.Count);
                                         listStrings.Add(hateText);
                                     }
                                 }
@@ -462,12 +452,12 @@ namespace AzureAIContentSafety.Helpers
                                     string sexualText;
                                     if (sexualResults.Count == 1)
                                     {
-                                        sexualText = string.Format("1 count of Violence related content in the content published. ");
+                                        sexualText = string.Format("1 count of Sexual related content that is about to be published");
                                         listStrings.Add(sexualText);
                                     }
                                     if (sexualResults.Count > 1)
                                     {
-                                        sexualText = string.Format("{0} counts of Violence related content in the content published. ", sexualResults.Count);
+                                        sexualText = string.Format("{0} counts of Sexual related content that is about to be published", sexualResults.Count);
                                         listStrings.Add(sexualText);
                                     }
                                 }
@@ -476,16 +466,16 @@ namespace AzureAIContentSafety.Helpers
                                     string selfHarmText;
                                     if (selfHarmResults.Count == 1)
                                     {
-                                        selfHarmText = string.Format("1 count of Violence related content in the content published. ");
+                                        selfHarmText = string.Format("1 count of Self Harm related content that is about to be published");
                                         listStrings.Add(selfHarmText);
                                     }
                                     if (selfHarmResults.Count > 1)
                                     {
-                                        selfHarmText = string.Format("{0} counts of Violence related content in the content published. ", selfHarmResults.Count);
+                                        selfHarmText = string.Format("{0} counts of Self Harm related content that is about to be published", selfHarmResults.Count);
                                         listStrings.Add(selfHarmText);
                                     }
                                 }
-                                
+
                             }
                         }
                     }
@@ -495,10 +485,19 @@ namespace AzureAIContentSafety.Helpers
             {
                 if (detectIfTextAnalysisAllowed.Count > 1)
                 {
-                    return "Please only have 1 CMS boolean property with attribute TextAnalysisAllowed";
+                    var errorMessageList = new List<string>
+                    {
+                        "Please only have 1 CMS boolean property with attribute TextAnalysisAllowed"
+                    };
+                    return errorMessageList;
                 }
             }
+            return listStrings;
+        }
 
+        public static List<string> ProcessTextAnalysisBlocklist(IContent startPage, IContent content)
+        {
+            var listStrings = new List<string>();
             var detectIfTextAnalysisBlocklistAllowed = GetPagePropertiesWithAttribute(startPage, typeof(TextAnalysisBlocklistAllowedAttribute));
 
             if (detectIfTextAnalysisBlocklistAllowed.Any() && detectIfTextAnalysisBlocklistAllowed != null)
@@ -513,69 +512,55 @@ namespace AzureAIContentSafety.Helpers
                         var chosenBlocklistOption = GetPropertiesWithAttribute(content, typeof(TextAnalysisBlocklistDropdown));
                         if (chosenBlocklistOption.Any() && chosenBlocklistOption != null)
                         {
-                            if (chosenBlocklistOption.Count == 1)
+                            var getFirstDefaultChosenBlocklistOption = chosenBlocklistOption.FirstOrDefault();
+                            var getBlocklistOptionValue = getFirstDefaultChosenBlocklistOption.Property.GetValue(getFirstDefaultChosenBlocklistOption.Content, null);
+                            if (getBlocklistOptionValue != null)
                             {
-                                var getFirstDefaultChosenBlocklistOption = chosenBlocklistOption.FirstOrDefault();
-                                var getBlocklistOptionValue = getFirstDefaultChosenBlocklistOption.Property.GetValue(getFirstDefaultChosenBlocklistOption.Content, null);
-                                if (getBlocklistOptionValue != null)
+                                var getBlocklistOption = getFirstDefaultChosenBlocklistOption.Property.GetValue(getFirstDefaultChosenBlocklistOption.Content).ToString();
+                                if (!string.IsNullOrWhiteSpace(getBlocklistOption))
                                 {
-                                    var getBlocklistOption = getFirstDefaultChosenBlocklistOption.Property.GetValue(getFirstDefaultChosenBlocklistOption.Content).ToString();
-                                    if (!string.IsNullOrWhiteSpace(getBlocklistOption))
+                                    var getTextAnalysisAttributesBlocklist = GetPropertiesWithAttribute(content, typeof(TextAnalysisBlocklist));
+                                    if (getTextAnalysisAttributesBlocklist.Any() && getTextAnalysisAttributesBlocklist != null)
                                     {
-                                        var getTextAnalysisAttributesBlocklist = GetPropertiesWithAttribute(content, typeof(TextAnalysisAttribute));
-                                        if (getTextAnalysisAttributesBlocklist.Any() && getTextAnalysisAttributesBlocklist != null)
+                                        foreach (var attribute in getTextAnalysisAttributesBlocklist)
                                         {
-                                            foreach (var attribute in getTextAnalysisAttributesBlocklist)
+                                            var checkObjectValueIsNotNull = attribute.Property.GetValue(attribute.Content, null);
+                                            if (checkObjectValueIsNotNull != null)
                                             {
-                                                var checkObjectValueIsNotNull = attribute.Property.GetValue(attribute.Content, null);
-                                                if (checkObjectValueIsNotNull != null)
+                                                var getTextAnalysisValue = attribute.Property.GetValue(attribute.Content, null).ToString();
+                                                var analyseTextBlocklist = AnalyseTextWithBlockList(getBlocklistOption, getTextAnalysisValue).ToList();
+                                                if (analyseTextBlocklist.Any() && analyseTextBlocklist != null)
                                                 {
-                                                    var getTextAnalysisValue = attribute.Property.GetValue(attribute.Content, null).ToString();
-                                                    var analyseTextBlocklist = ContentSafetyServiceAnalyser.AnalyseTextWithBlockList(getBlocklistOption, getTextAnalysisValue, content).ToList();
-                                                    if (analyseTextBlocklist.Any() && analyseTextBlocklist != null)
-                                                    {
-                                                        textBlocklistMatchResult.Add(analyseTextBlocklist);
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    continue;
+                                                    textBlocklistMatchResult.Add(analyseTextBlocklist);
                                                 }
                                             }
-                                        }
-                                        if (textBlocklistMatchResult.Any() && textBlocklistMatchResult != null)
-                                        {
-                                            var blocklistText = "";
-                                            if (textBlocklistMatchResult.Count == 1)
+                                            else
                                             {
-                                                blocklistText = string.Format("1 Blocklist Match in the content published. ");
-                                                listStrings.Add(blocklistText);
-                                            }
-                                            if (textBlocklistMatchResult.Count > 1)
-                                            {
-                                                blocklistText = string.Format("{0} Blocklist matches in the content published. ", textBlocklistMatchResult.Count);
-                                                listStrings.Add(blocklistText);
+                                                continue;
                                             }
                                         }
                                     }
+                                    if (textBlocklistMatchResult.Any() && textBlocklistMatchResult != null)
+                                    {
+                                        string blocklistText;
+                                        if (textBlocklistMatchResult.Count == 1)
+                                        {
+                                            blocklistText = string.Format("1 Blocklist Match in the content published. ");
+                                            listStrings.Add(blocklistText);
+                                        }
+                                        if (textBlocklistMatchResult.Count > 1)
+                                        {
+                                            blocklistText = string.Format("{0} Blocklist matches in the content published. ", textBlocklistMatchResult.Count);
+                                            listStrings.Add(blocklistText);
+                                        }
+                                    }
                                 }
-
-                            }
-                            else
-                            {
-                                return "Please only have 1 CMS boolean property with attribute TextAnalysisBlocklist";
                             }
                         }
                     }
                 }
             }
-            if (listStrings.Any())
-            {
-                listStrings.Insert(0, "Unable to publish - Azure AI Content Safety - Text Analysis has detected ");
-                listStrings.Insert(listStrings.Count + 1, " Please review content and publish again.");
-                result = string.Join(", ", listStrings.ToArray());
-            }
-            return result;
+            return listStrings;
         }
     }
 }

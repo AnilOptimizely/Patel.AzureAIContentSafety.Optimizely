@@ -6,9 +6,6 @@ using EPiServer.Web;
 using AzureAIContentSafety.Helpers;
 using Patel.AzureAIContentSafety.Optimizely.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Azure.AI.ContentSafety;
-using EPiServer.Framework.Blobs;
-using Patel.AzureAIContentSafety.Optimizely.Models;
 using System.Collections.Generic;
 using System.Linq;
 using EPiServer.ServiceLocation;
@@ -41,7 +38,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Initialization
         {
             var getStartPage = _contentLoader.Get<IContent>(ContentReference.StartPage);
 
-            if (e.Content is EPiServer.Core.ImageData image)
+            if (e.Content is ImageData image)
             {
                 var processImage = OptimizelyCmsHelpers.ProcessImageAnalysis(getStartPage, image);
                 if (!string.IsNullOrWhiteSpace(processImage))
@@ -54,19 +51,42 @@ namespace Patel.AzureAIContentSafety.Optimizely.Initialization
 
             if (e.Content is IContent content)
             {
+                var listAzureContentSafetyErrorMessages = new List<string>();
                 var processText = OptimizelyCmsHelpers.ProcessTextAnalysis(getStartPage, content);
-                if (!string.IsNullOrWhiteSpace(processText))
+                if (processText.Any())
                 {
-                    e.CancelReason = processText;
-                    e.CancelAction = true;
-                    e.Content = content;
+                    var checkErrorMessage = processText.Where(a => a.StartsWith("Please only have 1 CMS") && processText.Count == 1).ToString();
+                    if (!string.IsNullOrWhiteSpace(checkErrorMessage))
+                    {
+                        e.CancelReason = checkErrorMessage;
+                        e.CancelAction = true;
+                        e.Content = content;
+                    }
+                    listAzureContentSafetyErrorMessages.AddRange(processText);
+                }
+                var processTextBlocklist = OptimizelyCmsHelpers.ProcessTextAnalysisBlocklist(getStartPage, content);
+                if (processTextBlocklist.Any())
+                {
+                    listAzureContentSafetyErrorMessages.AddRange(processTextBlocklist);
+                }
+
+                if (listAzureContentSafetyErrorMessages.Any())
+                {
+                    listAzureContentSafetyErrorMessages.Insert(0, "Unable to publish - Azure AI Content Safety - Text Analysis has detected");
+                    listAzureContentSafetyErrorMessages.Add(" Please review content and publish again.");
+                    var result = string.Join(". ", listAzureContentSafetyErrorMessages.ToArray());
+                    if (!string.IsNullOrWhiteSpace(result))
+                    {
+                        e.CancelReason = result;
+                        e.CancelAction = true;
+                        e.Content = content;
+                    }
                 }
             }
         }
 
         public void Uninitialize(InitializationEngine context)
         {
-            
         }
     }
 }
