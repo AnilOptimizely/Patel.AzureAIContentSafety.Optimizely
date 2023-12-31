@@ -49,4 +49,5 @@ public class StartPage : SitePageData
    public virtual int SelfHarmResultSeverityLevel { get; set; }
 }
 ```
-Screenshot of Attribute being used
+**Screenshot of Attributes being used in the CMS**
+![SeverityLevelsCMS](/docs/Features/Images/SeverityLevels.JPG)
