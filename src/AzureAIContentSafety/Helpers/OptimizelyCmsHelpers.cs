@@ -1,7 +1,6 @@
 ﻿using Azure.AI.ContentSafety;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using EPiServer.ServiceLocation;
-using EPiServer;
 using EPiServer.Core;
 using System.Reflection;
 using Azure;

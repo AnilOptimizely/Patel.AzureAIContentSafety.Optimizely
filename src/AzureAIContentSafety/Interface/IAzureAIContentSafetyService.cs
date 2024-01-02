@@ -1,5 +1,4 @@
-﻿using Azure;
-using Azure.AI.ContentSafety;
+﻿using Azure.AI.ContentSafety;
 using Patel.AzureAIContentSafety.Optimizely.Models;
 using System.Collections.Generic;
 
