@@ -27,5 +27,5 @@ public class StandardPage : SitePageData
 }
 ```
 
-Screenshot of string properties with TextAnalysisBlocklist Attribute being used
+**Screenshot of string properties with TextAnalysisBlocklist Attribute being used**
 ![TextAnalysisBlocklist](/docs/Features/Images/TextAnalysisBlocklist.JPG)
