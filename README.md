@@ -11,15 +11,14 @@ This is an Add-On which integrates Azure AI Content Safety within Optimizely CMS
 
 ## Installation
 
-Installation added soon
 ```
-dotnet add package 
+dotnet add package Patel.AzureAIContentSafety.Optimizely
 ```
 ## Setup
 
 After installing the package, the following steps are required to be done to setup the Add-On correctly.
 
-### Create Azure AI Resource
+### Create Azure AI Content Safety Resource
 1. Navigate to the Azure Portal by clicking [here](https://portal.azure.com/)
 1. Click on create new resource 
 1. Search for Azure AI Content Safety
@@ -59,7 +58,3 @@ In the extension method in the Startup.Configure method, the following code will
 ```
 ## Attributes
 Please visit [here](https://github.com/AnilOptimizely/Patel-Azure.AI.Language.Optimizely/blob/develop/docs/Attributes.md) to find out more information about the various attributes that are contained within this Add-On and how they work.
-
-## More Information
-
-Blog posts added soon
