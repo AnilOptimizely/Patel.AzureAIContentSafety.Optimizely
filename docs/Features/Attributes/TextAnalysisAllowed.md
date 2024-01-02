@@ -22,4 +22,5 @@ public class StartPage : SitePageData
   public virtual bool AnalyseText { get; set; }
 }
 ```
-Screenshot of Property being used
+**Screenshot of TextAnalysis Allowed Attribute being used**
+![TextAnalysisAllowed](https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely/blob/develop/docs/Features/Images/Allowed.JPG)

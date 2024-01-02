@@ -24,4 +24,5 @@ public class StartPage : SitePageData
   public virtual bool BlocklistAllowed { get; set; }
 }
 ```
-Screenshot of Attribute being used
+**Screenshot of TextAnalysisBlocklistAllowed  Attribute being used**
+![TextAnalysisBlocklistAllowed](https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely/blob/develop/docs/Features/Images/Allowed.JPG)
