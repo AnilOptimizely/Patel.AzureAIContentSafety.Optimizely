@@ -22,5 +22,7 @@ public class StartPage : SitePageData
    public virtual bool AnalyseImages { get; set; }
 }
 ```
-Screenshot of Property being used
+
+**Screenshot of Boolean property being used with the ImageAnalysisAllowed attribute**
+![](/docs/Features/Images/ImageAnalysisAllowedAttribute.JPG)
 

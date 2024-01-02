@@ -15,14 +15,17 @@ This attribute should be alongside the [TextAnalysisBlocklistDropdown] attribute
 ``` C#
 public class StandardPage : SitePageData
 {
-  [SelectOne(SelectionFactoryType = typeof(BlockListSelectionFactory))]
-[Display(Name = "Select an Azure Content Safety Block List",
-        GroupName = SystemTabNames.Content,
-        Description = "Select an Azure Content Safety Block List to associate with the page.",
-        Order = 11)]
-[TextAnalysisBlocklistDropdown]
-public virtual string BlockList { get; set; }
+   [Display(
+      GroupName = SystemTabNames.Content,
+      Name = "Azure Content Safety Blocklist Text One",
+      Description = "Text used for the Azure AI Content Safety using a Blocklist",
+      Order = 10)]
+  [CultureSpecific]
+  [UIHint(UIHint.Textarea)]
+  [TextAnalysisBlocklist]
+  public virtual string TextAnalysisText { get; set; }
 }
 ```
 
-Screenshot of Attribute being used
+**Screenshot of string properties with TextAnalysisBlocklist Attribute being used**
+![TextAnalysisBlocklist](/docs/Features/Images/TextAnalysisBlocklist.JPG)

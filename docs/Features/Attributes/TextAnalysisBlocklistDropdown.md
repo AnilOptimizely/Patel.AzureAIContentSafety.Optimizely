@@ -23,3 +23,6 @@ public class StandardPage : SitePageData
   public virtual string BlockList { get; set; }
 }
 ```
+
+**Screenshot of Dropdown being used with the TextAnalysisBlocklistDropdown Attribute being used**
+![TextAnalysisBlocklistDropdown](/docs/Features/Images/BlockListDropdown.jpg)

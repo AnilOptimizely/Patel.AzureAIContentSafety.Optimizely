@@ -24,4 +24,5 @@ public class StandardPage : SitePageData
   public virtual string TextAnalysisText { get; set; }
 }
 ```
-Screenshot of Attribute being used
+**Screenshot of TextAnalysis Allowed Attribute being used**
+![TextAnalysisAllowed](/docs/Features/Images/BlockListDropdown.jpg)
