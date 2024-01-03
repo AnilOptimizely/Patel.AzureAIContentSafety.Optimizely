@@ -16,17 +16,10 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
 {
     public class AzureAIContentSafetyService : IAzureAIContentSafetyService
     {
-        private readonly OptimizelyCmsHelpers _optimizelyCmsHelper;
         private static IOptions<ContentSafetyOptions> _configuration;
         private static IOptions<ContentSafetyOptions> Configuration => _configuration ??= ServiceLocator.Current.GetInstance<IOptions<ContentSafetyOptions>>();
-
         private static readonly string ContentSafetySubscriptionKey = Configuration.Value.ContentSafetySubscriptionKey;
         private static readonly string ContentSafetyEndpoint = Configuration.Value.ContentSafetyEndpoint;
-
-        public AzureAIContentSafetyService(OptimizelyCmsHelpers optimizelyCmsHelpers)
-        {
-            _optimizelyCmsHelper = optimizelyCmsHelpers;
-        }
 
         public static ContentSafetyClient GetClient()
         {
@@ -41,7 +34,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
         {
 
             // Example: analyze image
-            ImageData image = new ImageData() { Content = BinaryData.FromBytes(File.ReadAllBytes(imageFilePath)) };
+            ImageData image = new() { Content = BinaryData.FromBytes(File.ReadAllBytes(imageFilePath)) };
             var request = new AnalyzeImageOptions(image);
 
             Response<AnalyzeImageResult> response;
@@ -269,9 +262,11 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
                 {
                     Console.WriteLine($"  BlockItemId: {blocklistItem.BlockItemId}");
                     Console.WriteLine($"  Blocklist Text: {blocklistItem.Text}");
-                    var dropdownItemsList = new List<string>();
-                    dropdownItemsList.Add(blocklistItem.BlockItemId);
-                    dropdownItemsList.Add(blocklistItem.Text);
+                    var dropdownItemsList = new List<string>
+                    {
+                        blocklistItem.BlockItemId,
+                        blocklistItem.Text
+                    };
                     model.BlockListName = blocklistItem.Text;
                     var result = string.Join("+", dropdownItemsList);
                     Console.WriteLine($"  result: {result}");
