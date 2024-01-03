@@ -24,10 +24,12 @@ namespace Patel.AzureAIContentSafety.Optimizely.Controllers
 
         public IActionResult Index()
         {
-            var model = new BlockListViewModel();
-            model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
-            model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
-            model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
+            var model = new BlockListViewModel
+            {
+                GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists(),
+                BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS(),
+                GetBlockItems = _optimizelyCmsHelper.GetBlockListItems()
+            };
             return View("/Views/Blocklist/Index.cshtml", model);
         }
 
@@ -36,10 +38,12 @@ namespace Patel.AzureAIContentSafety.Optimizely.Controllers
         [Route("/AzureContentSafetyBlockList/Delete")]
         public ActionResult DeleteBlockList(BlockListViewModel viewModel)
         {
-            var model = new BlockListViewModel();
-            model.ContentSafetyModel = new ContentSafetyModel();
-            model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
-            model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
+            var model = new BlockListViewModel
+            {
+                ContentSafetyModel = new ContentSafetyModel(),
+                GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists(),
+                GetBlockItems = _optimizelyCmsHelper.GetBlockListItems()
+            };
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.DeleteBlockList(viewModel.BlockListName);
             model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
             return View("/Views/Blocklist/Index.cshtml", model);
@@ -50,11 +54,13 @@ namespace Patel.AzureAIContentSafety.Optimizely.Controllers
         [Route("/AzureContentSafetyBlockList/CreateBlockList")]
         public ActionResult CreateBlockList(BlockListViewModel viewModel)
         {
-            var model = new BlockListViewModel();
-            model.ContentSafetyModel = new ContentSafetyModel();
-            model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
-            model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
+            var model = new BlockListViewModel
+            {
+                ContentSafetyModel = new ContentSafetyModel(),
+                GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists(),
+                GetBlockItems = _optimizelyCmsHelper.GetBlockListItems(),
+                BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS()
+            };
             model.ContentSafetyModel.Message = _azureAIContentSafetyService.CreateNewBlockList(viewModel.BlockListName, viewModel.BlockListDescription);
             return View("/Views/Blocklist/Index.cshtml", model);
         }
@@ -89,11 +95,13 @@ namespace Patel.AzureAIContentSafety.Optimizely.Controllers
         [Route("/AzureContentSafetyBlockList/GetBlockListItems")]
         public ActionResult GetBlockListItems(BlockListViewModel viewModel)
         {
-            var model = new BlockListViewModel();
-            model.ContentSafetyModel = new ContentSafetyModel();
-            model.BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS();
-            model.GetBlockItems = _optimizelyCmsHelper.GetBlockListItems();
-            model.GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists();
+            var model = new BlockListViewModel
+            {
+                ContentSafetyModel = new ContentSafetyModel(),
+                BlockLists = _optimizelyCmsHelper.GetTextBlockListsCMS(),
+                GetBlockItems = _optimizelyCmsHelper.GetBlockListItems(),
+                GetTextBlocklistsPages = _optimizelyCmsHelper.GetTextBlockLists()
+            };
             model.ContentSafetyModel.BlockItems = _azureAIContentSafetyService.GetBlockItems(viewModel.BlockListName);
             return View("/Views/Blocklist/Index.cshtml", model);
         }
