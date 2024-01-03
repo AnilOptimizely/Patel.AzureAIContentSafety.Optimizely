@@ -26,7 +26,7 @@ After installing the package, the following steps are required to be done to set
 4. Click Create
 5. When resource has been created, Navigate to the Keys and Endpoint section. An example screenshot of this is shown below
 
-![ResourceKey.](/docs/Features/Images/ContentSafetyResourceKeyEndpointInfo.JPG)
+![ResourceKey.](https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely/blob/main/docs/Features/Images/ContentSafetyResourceKeyEndpointInfo.JPG)
 
 
 7. Make a note of the Key and Endpoint variables - This will be needed in the Configuration section of Setup.
