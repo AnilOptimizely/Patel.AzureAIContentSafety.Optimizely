@@ -148,7 +148,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
         public List<TextBlocklist> GetBlocklists()
         {
             var blocklists = GetClient().GetTextBlocklists().ToList();
-            if (blocklists != null && blocklists.Any())
+            if (blocklists != null && blocklists.Count != 0)
             {
                 Console.WriteLine("Azure AI Content Safety -  Blocklists Retrieval operation complete");
                 foreach (var blocklist in blocklists)
@@ -230,7 +230,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
         {
             var model = new AzureAIContentSafetyBlockListItems
             {
-                BlockItems = new List<string>()
+                BlockItems = []
             };
             var allBlockitems = GetClient().GetTextBlocklistItems(blockListName);
             if (allBlockitems.Any())
@@ -251,7 +251,7 @@ namespace Patel.AzureAIContentSafety.Optimizely.Services
         {
             var model = new AzureAIContentSafetyBlockListItems
             {
-                BlockItems = new List<string>()
+                BlockItems = []
             };
             var allBlockitems = GetClient().GetTextBlocklistItems(blockListName);
             if (allBlockitems.Any())
