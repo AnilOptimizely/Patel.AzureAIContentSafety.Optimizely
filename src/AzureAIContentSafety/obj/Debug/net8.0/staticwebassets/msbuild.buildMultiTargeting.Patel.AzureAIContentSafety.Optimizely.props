@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Patel.AzureAIContentSafety.Optimizely.props" />
+</Project>

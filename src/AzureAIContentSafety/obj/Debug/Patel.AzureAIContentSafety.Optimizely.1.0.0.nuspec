@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Patel.AzureAIContentSafety.Optimizely</id>
+    <version>1.0.0</version>
+    <title>Patel.AzureAIContentSafety.Optimizely</title>
+    <authors>Anil Patel</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely</projectUrl>
+    <description>Azure AI Content Safety - Integration with Optimizely CMS.</description>
+    <releaseNotes>Release that includes the first iteration of Azure AI Content Safety - Integration with Optimizely CMS.</releaseNotes>
+    <copyright>Anil Patel 2024</copyright>
+    <tags>Optimizely CMS Optimizely CMS Azure AI Content Safety AI</tags>
+    <repository type="git" url="https://github.com/AnilOptimizely/Patel.AzureAIContentSafety.Optimizely" commit="36e9ecccc90552d609fb12f0de72c1fb57ffc18e" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="Azure.AI.ContentSafety" version="1.0.0-beta.1" exclude="Build,Analyzers" />
+        <dependency id="EPiServer.CMS.Core" version="[12.0.3, 13.0.0)" exclude="Build,Analyzers" />
+        <dependency id="EPiServer.CMS.UI.Core" version="[12.0.2, 13.0.0)" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0">
+        <frameworkReference name="Microsoft.AspNetCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\work\Patel.AzureAIContentSafety.Optimizely\src\AzureAIContentSafety\bin\Debug\net8.0\Patel.AzureAIContentSafety.Optimizely.dll" target="lib\net8.0\Patel.AzureAIContentSafety.Optimizely.dll" />
+    <file src="C:\work\Patel.AzureAIContentSafety.Optimizely\src\AzureAIContentSafety\README.md" target="\README.md" />
+  </files>
+</package>
